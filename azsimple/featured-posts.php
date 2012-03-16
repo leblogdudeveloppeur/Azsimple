@@ -22,7 +22,7 @@ foreach ($options as $value) {
 			</div>
 			<div class="featured-post-text">
 				<h2 class="featured-post-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>                 
-				<div class="featured-post-content"><?php limits(120, "Continue Reading"); ?></div>
+				<div class="featured-post-content"><?php limits(120, __('Continue Reading')); ?></div>
 			</div>
 			<div class="clearfix"></div>
 		</li>

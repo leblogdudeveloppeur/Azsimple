@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head profile="http://gmpg.org/xfn/11">
 
-	<title><?php bloginfo('name'); ?> <?php if ( is_single() ) { ?> &raquo; Blog Archive <?php } ?> <?php wp_title(); ?></title>
+	<title><?php bloginfo('name'); ?> <?php if ( is_single() ) { _e('&raquo; Blog Archive'); } ?> <?php wp_title(); ?></title>
 
 	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 	<meta name="generator" content="WordPress <?php bloginfo('version'); ?>" /> <!-- leave this for stats please -->
@@ -61,7 +61,7 @@
 			<div class="main-menu-container">
 				<?php wp_nav_menu(array('theme_location' => 'menu-1', 'container' => 'div', 'container_class' => 'main-menu')); ?>
 				<div class="social">
-					Follow us: <a href="<?php echo $azs_facebook; ?>">Facebook</a>, <a href="http://twitter.com/<?php echo $azs_twitter; ?>">Twitter</a>, <a href="<?php bloginfo('rss2_url'); ?>">RSS Feed</a>
+					<?php printf(__('Follow us: <a href="%1$s">Facebook</a>, <a href="http://twitter.com/%2$s">Twitter</a>, <a href="%3$s">RSS Feed</a>'), $azs_facebook, $azs_twitter, get_bloginfo('rss2_url')); ?>
 				</div>
 			</div>
 		</div>

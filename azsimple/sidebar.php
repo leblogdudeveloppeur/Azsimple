@@ -15,12 +15,12 @@ foreach ($options as $value) {
 
 	<div class="search-form">
 		<form action="<?php bloginfo('url'); ?>/" method="get">
-			<input type="text" value="Type search text and press enter..." name="s" id="ls" class="searchfield" onfocus="if (this.value == 'Type search text and press enter...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Type search text and press enter...';}" />
+			<input type="text" value="<?php _e('Type search text and press enter...'); ?>" name="s" id="ls" class="searchfield" onfocus="if (this.value == '<?php _e('Type search text and press enter...'); ?>') {this.value = '';}" onblur="if (this.value == '') {this.value = '<?php _e('Type search text and press enter...'); ?>';}" />
 		</form>
 	</div>
 
 	<div class="sidebar-ads">
-		<h2>Advertising</h2>
+		<h2><?php _e('Advertising'); ?></h2>
 		<div class="sidebar-ads-wrap"><?php echo stripslashes($azs_ads125x125); ?></div>
 	</div>
 

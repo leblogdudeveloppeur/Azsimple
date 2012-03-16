@@ -1,10 +1,10 @@
 <div id="comments-wrap">
 <?php // Do not delete these lines
 	if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['SCRIPT_FILENAME']))
-		die ('Please do not load this page directly. Thanks!');
+		die (__('Please do not load this page directly. Thanks!'));
 
 	if ( post_password_required() ) { ?>
-		<p class="nocomments">This post is password protected. Enter the password to view comments.</p>
+		<p class="nocomments"><?php _e('This post is password protected. Enter the password to view comments.'); ?></p>
 	<?php
 		return;
 	}
@@ -13,7 +13,7 @@
 <!-- You can start editing here. -->
 <?php // Begin Comments & Trackbacks ?>
 <?php if ( have_comments() ) : ?>
-<h3 id="comments-number"><?php comments_number('No Comments', 'One Comment', '% Comments' );?> to &#8220;<?php the_title(); ?>&#8221;</h3>
+<h3 id="comments-number"><?php comments_number(__('No Comments'), __('1 Comment'), __('% Comments') );?><?php printf(__(' to &#8220;%s&#8221;'), get_the_title()); ?></h3>
 
 <ol class="commentlist">
 	<?php wp_list_comments(); ?>
@@ -42,14 +42,14 @@
 
 <div id="respond">
 
-<h3 class="postcomment"><?php comment_form_title( 'Leave a Reply', 'Leave a Reply to %s' ); ?></h3>
+<h3 class="postcomment"><?php comment_form_title( __('Leave a Reply'), __('Leave a Reply to %s') ); ?></h3>
 
 <div class="cancel-comment-reply">
 	<small><?php cancel_comment_reply_link(); ?></small>
 </div>
 
 <?php if ( get_option('comment_registration') && !$user_ID ) : ?>
-<p>You must be <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?redirect_to=<?php echo urlencode(get_permalink()); ?>">logged in</a> to post a comment.</p>
+<p><?php $urlRedirection = get_option('siteurl') . "/wp-login.php?redirect_to=" . urlencode(get_permalink()); ?><?php printf(__('You must be <a href="%s">logged in</a> to post a comment.'), $urlRedirection); ?></p>
 
 <?php else : ?>
 
@@ -57,7 +57,7 @@
 
 	<?php if ( $user_ID ) : ?>
 
-<p>Logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Log out of this account">Log out &raquo;</a></p>
+<p><?php $urlProfil = get_option('siteurl') . "/wp-admin/profile.php"; ?><?php printf(__('Logged in as <a href="%1$s">%2$s</a>.'), $urlProfil, $user_identity); ?> <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="<?php _e('Log out of this account'); ?>"><?php _e('Log out &raquo;'); ?></a></p>
 
 	<?php else : ?>
 
