@@ -1,0 +1,412 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: PLOUHINEC Erwann <pik0uz@yahoo.fr>\n"
+"Language-Team: FRENCH <contact@leblogdudeveloppeur.fr>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: single.php:21
+msgid " &#124; "
+msgstr " &#124; "
+
+#: functions.php:232
+msgid "%s Options"
+msgstr "Options d’%s"
+
+#: comments.php:16
+#, possible-php-format
+msgid " to &#8220;%s&#8221;"
+msgstr " sur «&nbsp;%s&nbsp;»"
+
+#: archive.php:34
+#: comments.php:16
+#: index.php:16
+#: search.php:19
+msgid "% Comments"
+msgstr "% commentaires"
+
+#: functions.php:241
+#, possible-php-format
+msgid "%s settings reset."
+msgstr "%s configuration réinitialisée."
+
+#: functions.php:240
+#, possible-php-format
+msgid "%s settings saved."
+msgstr "%s configuration enregistrée."
+
+#: footer.php:40
+#, possible-php-format
+msgid "&#169; Copyright %1$d - %2$s"
+msgstr "&#169; Copyright %1$d - %2$s"
+
+#: archive.php:45
+#: index.php:27
+#: search.php:30
+msgid "&laquo; Newer Posts"
+msgstr "&laquo; Articles plus anciens"
+
+#: header.php:5
+msgid "&raquo; Blog Archive"
+msgstr "Archives du blog"
+
+#: comments.php:66
+#: comments.php:71
+msgid "*"
+msgstr "*"
+
+#: single.php:21
+msgid ", "
+msgstr ", "
+
+#: functions.php:34
+#: functions.php:59
+msgid "..."
+msgstr "…"
+
+#: archive.php:34
+#: comments.php:16
+#: index.php:16
+#: search.php:19
+msgid "1 Comment"
+msgstr "1 commentaire"
+
+#: comments.php:76
+msgid "<acronym title=\"Uniform Resource Identifier\">URI</acronym>"
+msgstr "<acronym title=\"Uniform Resource Identifier\">URI</acronym>"
+
+#: footer.php:16
+#: functions.php:176
+msgid "About Us"
+msgstr "À propos"
+
+#: sidebar.php:23
+msgid "Advertising"
+msgstr "Publicité"
+
+#: archive.php:15
+#: archive.php:17
+#: archive.php:19
+#, possible-php-format
+msgid "Archive for %s:"
+msgstr "Archive de %s&nbsp;:"
+
+#: archive.php:11
+#, possible-php-format
+msgid "Archive for the &#8216;%s&#8217; category:"
+msgstr "Archive de la catégorie «&nbsp;%s&nbsp;»&nbsp;:"
+
+#: sidebar.php:39
+msgid "Archives"
+msgstr "Archives"
+
+#: archive.php:21
+msgid "Author Archive:"
+msgstr "Archive de l'auteur :"
+
+#: functions.php:113
+msgid "Azsimple Theme Options"
+msgstr "Options du thème Azsimple"
+
+#: archive.php:23
+msgid "Blog Archives:"
+msgstr "Archives du blog :"
+
+#: sidebar.php:32
+msgid "Categories"
+msgstr "Catégories"
+
+#: featured-posts.php:25
+msgid "Continue Reading"
+msgstr "Continuer la lecture"
+
+#: comments.php:71
+msgid "E-mail"
+msgstr "E-mail"
+
+#: single.php:21
+msgid "Edit"
+msgstr "Modifier"
+
+#: functions.php:177
+msgid "Enter a short presentation text"
+msgstr "Entrez un court texte de présentation"
+
+#: functions.php:185
+#: functions.php:192
+msgid "Enter advertising code"
+msgstr "Entrez le code de la publicité"
+
+#: functions.php:128
+msgid "Enter the favicon URL"
+msgstr "Entrez l'URL du favicon"
+
+#: functions.php:121
+msgid "Enter the logo URL. Maximum logo width = 400px. Maximum logo height = 50px."
+msgstr "Entrez l’URL du logo. Largeur maximum du logo = 400&nbsp;px. Hauteur maximum du logo = 50&nbsp;px."
+
+#: functions.php:135
+msgid "Enter the name of the category that contains the featured posts"
+msgstr "Entrez le nom de la catégorie contenant les articles à la une"
+
+#: functions.php:142
+msgid "Enter the number of featured posts you want to show"
+msgstr "Entrez le nombre d’articles à la une que vous voulez afficher"
+
+#: functions.php:163
+msgid "Enter the number of tweets you want to show in the footer"
+msgstr "Entrez le nombre de <em>tweets</em> que vous voulez afficher dans le pied de page"
+
+#: functions.php:149
+msgid "Enter your Facebook URL: http://...."
+msgstr "Entrez votre URL Facebook&nbsp;: http://…"
+
+#: functions.php:170
+msgid "Enter your Feedburner ID"
+msgstr "Entrez votre identifiant Feedburner"
+
+#: functions.php:156
+msgid "Enter your Twitter ID"
+msgstr "Entrez votre identifiant Twitter"
+
+#: footer.php:33
+msgid "Enter your e-mail"
+msgstr "Entrez votre e-mail"
+
+#: footer.php:31
+msgid "Enter your e-mail to get the latest posts and updates:"
+msgstr "Entrez votre e-mail pour avoir les derniers articles et mises à jour&nbsp;:"
+
+#: 404.php:7
+msgid "Error 404: No Page Found!"
+msgstr "Erreur 404&nbsp;: la page n’a pas été trouvée&nbsp;!"
+
+#: archive.php:15
+msgid "F jS, Y"
+msgstr "j F Y"
+
+#: archive.php:17
+msgid "F, Y"
+msgstr "F Y"
+
+#: functions.php:148
+msgid "Facebook URL"
+msgstr "URL de Facebook"
+
+#: functions.php:127
+msgid "Favicon URL"
+msgstr "URL du favicon"
+
+#: functions.php:134
+msgid "Featured Posts Category"
+msgstr "Catégorie des articles à la une"
+
+#: functions.php:169
+msgid "Feedburner ID"
+msgstr "Identifiant Feedburner"
+
+#: single.php:21
+msgid "Filed under: "
+msgstr "Répertorié dans&nbsp;: "
+
+#: header.php:64
+#, possible-php-format
+msgid "Follow us: <a href=\"%1$s\">Facebook</a>, <a href=\"http://twitter.com/%2$s\">Twitter</a>, <a href=\"%3$s\">RSS Feed</a>"
+msgstr "Nous suivre&nbsp;: <a href=\"%1$s\">Facebook</a>, <a href=\"http://twitter.com/%2$s\">Twitter</a>, <a href=\"%3$s\">Flux RSS</a>"
+
+#: functions.php:184
+msgid "Header Advertising 468x60"
+msgstr "Publicité de haut de page (468&nbsp;×&nbsp;60)"
+
+#: footer.php:21
+msgid "Latest Tweets"
+msgstr "Derniers <em>tweets</em>"
+
+#: archive.php:34
+#: index.php:16
+#: search.php:19
+msgid "Leave a Comment"
+msgstr "Laisser un commentaire"
+
+#: comments.php:45
+msgid "Leave a Reply"
+msgstr "Laisser une réponse"
+
+#: comments.php:45
+#, possible-php-format
+msgid "Leave a Reply to %s"
+msgstr "Laisser une réponse à %s"
+
+#: sidebar.php:46
+msgid "Links"
+msgstr "Liens"
+
+#: footer.php:23
+msgid "Loading Tweets..."
+msgstr "Chargement des <em>tweets</em>…"
+
+#: comments.php:60
+msgid "Log out &raquo;"
+msgstr "Déconnexion »"
+
+#: comments.php:60
+msgid "Log out of this account"
+msgstr "Déconnexion de ce compte"
+
+#: comments.php:60
+#, possible-php-format
+msgid "Logged in as <a href=\"%1$s\">%2$s</a>."
+msgstr "Connecté en tant que <a href=\"%1$s\">%2$s</a>."
+
+#: functions.php:120
+msgid "Logo URL"
+msgstr "URL du logo"
+
+#: archive.php:34
+#: index.php:16
+#: page.php:13
+#: search.php:19
+#: single.php:13
+msgid "M d Y"
+msgstr "d M Y"
+
+#: functions.php:11
+msgid "Menu 1"
+msgstr "Menu 1"
+
+#: comments.php:66
+msgid "Name"
+msgstr "Nom"
+
+#: comments.php:16
+msgid "No Comments"
+msgstr "Aucun commentaire"
+
+#: search.php:36
+#, possible-php-format
+msgid "Nothing found for \"%s\"!"
+msgstr "Rien n’a été trouvé pour «&nbsp;%s&nbsp;»&nbsp;!"
+
+#: functions.php:141
+msgid "Number of Featured Posts"
+msgstr "Nombre d’articles à la une"
+
+#: functions.php:162
+msgid "Number of Tweets"
+msgstr "Nombre de <em>tweets</em>"
+
+#: archive.php:44
+#: index.php:26
+#: search.php:29
+msgid "Older Posts &raquo;"
+msgstr "Articles plus anciens &raquo;"
+
+#: index.php:14
+#: page.php:11
+#: search.php:17
+#: single.php:11
+#, possible-php-format
+msgid "Permanent Link to %s"
+msgstr "Lien permanent vers %s"
+
+#: archive.php:32
+#, possible-php-format
+msgid "Permanent Link to %s:"
+msgstr "Lien permanent vers %s&nbsp;:"
+
+#: comments.php:4
+msgid "Please do not load this page directly. Thanks!"
+msgstr "Veuillez ne pas charger cette page directement. Merci&nbsp;!"
+
+#: archive.php:13
+#, possible-php-format
+msgid "Posts Tagged &#8216;%s&#8217;:"
+msgstr "Articles taggés &#8216;%s&#8217;&nbsp;:"
+
+#: footer.php:43
+msgid "Powered by <a href=\"http://www.wordpress.org\">Wordpress</a> - Azsimple Theme by <a href=\"http://azmind.com\" title=\"Free Wordpress Themes and Web Design Resources\">Azmind.com</a>"
+msgstr "Propulsé par <a href=\"http://www.wordpress.org\">Wordpress</a> - Thème Azsimple de <a href=\"http://azmind.com\" title=\"Thèmes Wordpress gratuits et ressources en Web Design\">Azmind.com</a>"
+
+#: page.php:13
+#: single.php:13
+#, possible-php-format
+msgid "Published on: <span>%1$s</span> by <span>%2$s</span>"
+msgstr "Publié le&nbsp;: <span>%1$s</span> par <span>%2$s</span>"
+
+#: archive.php:34
+#: index.php:16
+#: search.php:19
+#, possible-php-format
+msgid "Published on: <span>%1$s</span> by <span>%2$s</span> - "
+msgstr "Publié le&nbsp;: <span>%1$s</span> par <span>%2$s</span> - "
+
+#: functions.php:405
+msgid "Reset"
+msgstr "Réinitialiser"
+
+#: functions.php:389
+#: functions.php:399
+msgid "Save changes"
+msgstr "Enregistrer les modifications"
+
+#: search.php:9
+#, possible-php-format
+msgid "Search results for \"%s\":"
+msgstr "Résultats de recherche pour «&nbsp;%s&nbsp;»&nbsp;:"
+
+#: functions.php:191
+msgid "Sidebar Advertising"
+msgstr "Publicité de la barre de menu"
+
+#: comments.php:36
+#: comments.php:94
+msgid "Sorry, the comment form is closed at this time."
+msgstr "Désolé, le formulaire des commentaires est actuellement fermé."
+
+#: comments.php:86
+msgid "Submit Comment"
+msgstr "Soumettre le commentaire"
+
+#: comments.php:86
+#: footer.php:34
+msgid "Subscribe"
+msgstr "S’inscrire"
+
+#: footer.php:30
+msgid "Subscribe to our Newsletter"
+msgstr "S’inscrire à notre <em>newsletter</em>"
+
+#: single.php:21
+msgid "Tags: "
+msgstr "Tags&nbsp;: "
+
+#: comments.php:7
+msgid "This post is password protected. Enter the password to view comments."
+msgstr "Cet article est protégé par un mot de passe. Entrez le mot de passe pour voir les commentaires."
+
+#: functions.php:155
+msgid "Twitter ID"
+msgstr "Identifiant Twitter"
+
+#: sidebar.php:18
+msgid "Type search text and press enter..."
+msgstr "Tapez un texte de recherche et appuyez sur entrée…"
+
+#: archive.php:19
+#: footer.php:40
+msgid "Y"
+msgstr "Y"
+
+#: comments.php:52
+#, possible-php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "Vous devez être <a href=\"%s\">connecté</a> pour envoyer un commentaire."
+
+#: footer.php:33
+msgid "en_US"
+msgstr "fr_FR"
+
