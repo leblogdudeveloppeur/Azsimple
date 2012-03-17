@@ -37,7 +37,7 @@ foreach ($options as $value) {
 
 			<div id="footer-credits">
 				<div class="footer-credits-left">
-					<?php printf(__('&#169; Copyright %1$d - %2$s', 'azsimple'), date('Y', 'azsimple'), get_bloginfo('name')); ?>
+					<?php printf(__('&#169; Copyright %1$d - %2$s', 'azsimple'), date('Y'), get_bloginfo('name')); ?>
 				</div>
 				<div class="footer-credits-right">
 					<?php _e('Powered by <a href="http://www.wordpress.org">Wordpress</a> - Azsimple Theme by <a href="http://azmind.com" title="Free Wordpress Themes and Web Design Resources">Azmind.com</a>', 'azsimple'); ?>
