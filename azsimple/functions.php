@@ -1,5 +1,7 @@
 <?php
 
+load_theme_textdomain('azsimple', TEMPLATEPATH . '/languages');
+
 /* ------- Adding a custom menu ------- */
 add_theme_support('menus');
 
@@ -8,7 +10,7 @@ add_action( 'init', 'register_my_menus' );
 function register_my_menus() {
 	register_nav_menus(
 		array(
-			'menu-1' => __( 'Menu 1' ),
+			'menu-1' => __('Menu 1', 'azsimple'),
 		)
 	);
 }
@@ -32,7 +34,7 @@ function limits($max_char, $more_link_text = '(more...)', $stripteaser = 0, $mor
         $content = $content;
         echo $content;
 
-        echo __('...');
+        echo __('...', 'azsimple');
         echo "<div class=";
 		echo "'continue-reading'>";
 		echo "<a href='";
@@ -57,7 +59,7 @@ function limits2($max_char, $more_link_text = '(more...)', $stripteaser = 0, $mo
         $content = $content;
         echo $content;
 
-        _e('...');
+        _e('...', 'azsimple');
    }
    else {
       echo $content;
@@ -111,86 +113,86 @@ $shortname = "azs";
 $options = array (
 
 array(
-"name" => __('Azsimple Theme Options'),
+"name" => __('Azsimple Theme Options', 'azsimple'),
 "type" => "title"),
 
 array(
 "type" => "open"),
 
 array(
-"name" => __('Logo URL'),
-"desc" => __('Enter the logo URL. Maximum logo width = 400px. Maximum logo height = 50px.'),
+"name" => __('Logo URL', 'azsimple'),
+"desc" => __('Enter the logo URL. Maximum logo width = 400px. Maximum logo height = 50px.', 'azsimple'),
 "id" => $shortname."_logourl",
 "std" => "http://azmind.com/wp-themes-demo2/wp-content/themes/azsimple/images/logo.jpg",
 "type" => "text"),
 
 array(
-"name" => __('Favicon URL'),
-"desc" => __('Enter the favicon URL'),
+"name" => __('Favicon URL', 'azsimple'),
+"desc" => __('Enter the favicon URL', 'azsimple'),
 "id" => $shortname."_favicon",
 "std" => "http://azmind.com/wp-themes-demo2/wp-content/themes/azsimple/images/favicon.ico",
 "type" => "text"),
 
 array(
-"name" => __('Featured Posts Category'),
-"desc" => __('Enter the name of the category that contains the featured posts'),
+"name" => __('Featured Posts Category', 'azsimple'),
+"desc" => __('Enter the name of the category that contains the featured posts', 'azsimple'),
 "id" => $shortname."_featuredcat",
 "std" => "Uncategorized",
 "type" => "text"),
 
 array(
-"name" => __('Number of Featured Posts'),
-"desc" => __('Enter the number of featured posts you want to show'),
+"name" => __('Number of Featured Posts', 'azsimple'),
+"desc" => __('Enter the number of featured posts you want to show', 'azsimple'),
 "id" => $shortname."_featurednr",
 "std" => 4,
 "type" => "text"),
 
 array(
-"name" => __('Facebook URL'),
-"desc" => __('Enter your Facebook URL: http://....'),
+"name" => __('Facebook URL', 'azsimple'),
+"desc" => __('Enter your Facebook URL: http://....', 'azsimple'),
 "id" => $shortname."_facebook",
 "std" => "http://www.facebook.com/pages/Azmindcom/196582707093191",
 "type" => "text"),
 
 array(
-"name" => __('Twitter ID'),
-"desc" => __('Enter your Twitter ID'),
+"name" => __('Twitter ID', 'azsimple'),
+"desc" => __('Enter your Twitter ID', 'azsimple'),
 "id" => $shortname."_twitter",
 "std" => "anli_zaimi",
 "type" => "text"),
 
 array(
-"name" => __('Number of Tweets'),
-"desc" => __('Enter the number of tweets you want to show in the footer'),
+"name" => __('Number of Tweets', 'azsimple'),
+"desc" => __('Enter the number of tweets you want to show in the footer', 'azsimple'),
 "id" => $shortname."_tweetsnr",
 "std" => 4,
 "type" => "text"),
 
 array(
-"name" => __('Feedburner ID'),
-"desc" => __('Enter your Feedburner ID'),
+"name" => __('Feedburner ID', 'azsimple'),
+"desc" => __('Enter your Feedburner ID', 'azsimple'),
 "id" => $shortname."_feedburner",
 "std" => "Azmind",
 "type" => "text"),
 
 array(
-"name" => __('About Us'),
-"desc" => __('Enter a short presentation text'),
+"name" => __('About Us', 'azsimple'),
+"desc" => __('Enter a short presentation text', 'azsimple'),
 "id" => $shortname."_aboutus",
 "std" => "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque sed felis. Aliquam sit amet felis. Mauris semper, velit semper laoreet dictum, <a href='http://azmind.com'>quam diam</a> dictum urna, nec placerat elit nisl in quam.
 <br />Etiam augue pede, molestie eget, rhoncus at, convallis ut, eros. Aliquam pharetra. Nulla in tellus eget odio sagittis blandit. Maecenas at nisl.",
 "type" => "textarea"),
 
 array(
-"name" => __('Header Advertising 468x60'),
-"desc" => __('Enter advertising code'),
+"name" => __('Header Advertising 468x60', 'azsimple'),
+"desc" => __('Enter advertising code', 'azsimple'),
 "id" => $shortname."_ads468x60",
 "std" => "<img src='http://azmind.com/wp-themes-demo2/wp-content/themes/azsimple/images/header-advertising.jpg' alt='advertising' />",
 "type" => "textarea"),
 
 array(
-"name" => __('Sidebar Advertising'),
-"desc" => __('Enter advertising code'),
+"name" => __('Sidebar Advertising', 'azsimple'),
+"desc" => __('Enter advertising code', 'azsimple'),
 "id" => $shortname."_ads125x125",
 "std" => "<img src='http://azmind.com/wp-themes-demo2/wp-content/themes/azsimple/images/sidebar-advertising.jpg' alt='advertising' /> <img src='http://azmind.com/wp-themes-demo2/wp-content/themes/azsimple/images/sidebar-advertising.jpg' alt='advertising' />",
 "type" => "textarea"),
@@ -230,7 +232,7 @@ function mytheme_add_admin() {
         }
     }
 
-    add_theme_page(sprintf(__('%s Options'), $themename), sprintf(__('%s Options'), $themename), 'edit_themes', basename(__FILE__), 'mytheme_admin');
+    add_theme_page(sprintf(__('%s Options', 'azsimple'), $themename), sprintf(__('%s Options', 'azsimple'), $themename), 'edit_themes', basename(__FILE__), 'mytheme_admin');
 
 }
 
@@ -238,8 +240,8 @@ function mytheme_admin() {
 
     global $themename, $shortname, $options;
 
-    if ( $_REQUEST['saved'] ) echo '<div id="message" class="updated fade"><p><strong>' . sprintf(__('%s settings saved.'), $themename) . '</strong></p></div>';
-    if ( $_REQUEST['reset'] ) echo '<div id="message" class="updated fade"><p><strong>' . sprintf(__('%s settings reset.'), $themename) . '</strong></p></div>';
+    if ( $_REQUEST['saved'] ) echo '<div id="message" class="updated fade"><p><strong>' . sprintf(__('%s settings saved.', 'azsimple'), $themename) . '</strong></p></div>';
+    if ( $_REQUEST['reset'] ) echo '<div id="message" class="updated fade"><p><strong>' . sprintf(__('%s settings reset.', 'azsimple'), $themename) . '</strong></p></div>';
 
 ?>
 <div class="wrap" style="margin:0 auto; padding:20px 0px 0px;">
@@ -387,7 +389,7 @@ case "submit":
 ?>
 
 <p class="submit">
-<input name="save" type="submit" value="<?php _e('Save changes'); ?>" />
+<input name="save" type="submit" value="<?php _e('Save changes', 'azsimple'); ?>" />
 <input type="hidden" name="action" value="save" />
 </p>
 
@@ -397,13 +399,13 @@ case "submit":
 ?>
 
 <p class="submit">
-<input name="save" type="submit" value="<?php _e('Save changes'); ?>" />
+<input name="save" type="submit" value="<?php _e('Save changes', 'azsimple'); ?>" />
 <input type="hidden" name="action" value="save" />
 </p>
 </form>
 <form method="post">
 <p class="submit">
-<input name="reset" type="submit" value="<?php _e('Reset'); ?>" />
+<input name="reset" type="submit" value="<?php _e('Reset', 'azsimple'); ?>" />
 <input type="hidden" name="action" value="reset" />
 </p>
 </form>

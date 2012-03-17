@@ -8,9 +8,9 @@
 
 				<div class="full-post" id="post-<?php the_ID(); ?>"> 
 
-					<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php printf(__('Permanent Link to %s'), get_the_title()); ?>"><?php the_title(); ?></a></h2>
+					<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php printf(__('Permanent Link to %s', 'azsimple'), get_the_title()); ?>"><?php the_title(); ?></a></h2>
 					<div class="meta">
-						<?php $timeFormat = __('M d Y'); ?><?php printf(__('Published on: <span>%1$s</span> by <span>%2$s</span>'), get_the_time($formatTime), get_the_author()); ?>
+						<?php $timeFormat = __('M d Y', 'azsimple'); ?><?php printf(__('Published on: <span>%1$s</span> by <span>%2$s</span>', 'azsimple'), get_the_time($formatTime), get_the_author()); ?>
 					</div><!--meta-->
  
 					<div class="full-post-content"><?php the_content(); ?></div>
