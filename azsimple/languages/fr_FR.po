@@ -394,7 +394,7 @@ msgstr "Identifiant Twitter"
 
 #: sidebar.php:18
 msgid "Type search text and press enter..."
-msgstr "Tapez un texte de recherche et appuyez sur entrée…"
+msgstr "Tapez une recherche puis entrée…"
 
 #: archive.php:19
 #: footer.php:40
