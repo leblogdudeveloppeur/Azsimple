@@ -104,7 +104,7 @@ strong { font-weight: bold; }
 	height: 60px;
 	margin: 0 auto;
 	text-align: center;
-	background: url(images/header-top-bg.jpg) top left repeat-x;
+	background: url(images/header-top-bg.png) top left repeat-x;
 }
 
 .main-menu-container {
@@ -226,7 +226,7 @@ strong { font-weight: bold; }
 #content {
 	width: 960px;
 	margin: 0 auto;
-	background: #ffffff url(images/content-bg.jpg) top left repeat-y;
+	background: #ffffff url(images/content-bg.png) top left repeat-y;
 	overflow: hidden;
 	text-align: left;
 }
@@ -527,7 +527,7 @@ ul.sidebar-content li ul li a { border-bottom: 1px dotted #bbbbbb; }
 	margin: 30px 0 0 25px;
 }
 .latest-tweets ul { margin-top: 10px; line-height: 24px; }
-.latest-tweets ul li { padding: 0 0 5px 22px; background: url(images/tweets-bg.jpg) 0 5px no-repeat; }
+.latest-tweets ul li { padding: 0 0 5px 22px; background: url(images/tweets-bg.png) 0 5px no-repeat; }
 
 .about-us {
 	float: left;

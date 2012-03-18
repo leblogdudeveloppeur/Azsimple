@@ -80,7 +80,7 @@ function zt_get_thumbnail($postid=0, $size='thumbnail', $attributes='') {
 		}
 	else {
 ?>
-<img src="<?php bloginfo('template_directory'); ?>/images/noimage.jpg" alt="<?php the_title(); ?>" />
+<img src="<?php bloginfo('template_directory'); ?>/images/noimage.png" alt="<?php the_title(); ?>" />
 <?php
 	}
 	
@@ -187,14 +187,14 @@ array(
 "name" => __('Header Advertising 468x60', 'azsimple'),
 "desc" => __('Enter advertising code', 'azsimple'),
 "id" => $shortname."_ads468x60",
-"std" => "<img src='http://azmind.com/wp-themes-demo2/wp-content/themes/azsimple/images/header-advertising.jpg' alt='advertising' />",
+"std" => "<img src='http://azmind.com/wp-themes-demo2/wp-content/themes/azsimple/images/header-advertising.png' alt='advertising' />",
 "type" => "textarea"),
 
 array(
 "name" => __('Sidebar Advertising', 'azsimple'),
 "desc" => __('Enter advertising code', 'azsimple'),
 "id" => $shortname."_ads125x125",
-"std" => "<img src='http://azmind.com/wp-themes-demo2/wp-content/themes/azsimple/images/sidebar-advertising.jpg' alt='advertising' /> <img src='http://azmind.com/wp-themes-demo2/wp-content/themes/azsimple/images/sidebar-advertising.jpg' alt='advertising' />",
+"std" => "<img src='http://azmind.com/wp-themes-demo2/wp-content/themes/azsimple/images/sidebar-advertising.png' alt='advertising' /> <img src='http://azmind.com/wp-themes-demo2/wp-content/themes/azsimple/images/sidebar-advertising.png' alt='advertising' />",
 "type" => "textarea"),
 
 
