@@ -665,7 +665,7 @@ form#commentform textarea {
 }
 
 form#commentform input#submit {
-	width: 150px; background: #f8f8f8; color: #888888;
+	width: auto; background: #f8f8f8; color: #888888;
 }
 
 

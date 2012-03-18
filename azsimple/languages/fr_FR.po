@@ -211,7 +211,7 @@ msgstr "Identifiant Feedburner"
 
 #: single.php:21
 msgid "Filed under: "
-msgstr "Répertorié dans&nbsp;: "
+msgstr "Classé dans&nbsp;: "
 
 #: header.php:64
 #, possible-php-format
