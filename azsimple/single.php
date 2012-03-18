@@ -1,38 +1,22 @@
 <?php get_header(); ?>
-
-	<div id="content">
-
-		<div id="posts">
-
-			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
-				<div class="full-post" id="post-<?php the_ID(); ?>"> 
-
-					<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php printf(__('Permanent Link to %s', 'azsimple'), get_the_title()); ?>"><?php the_title(); ?></a></h2>
-					<div class="meta">
-						<?php $timeFormat = __('M d Y', 'azsimple'); printf(__('Published on: <span>%1$s</span> by <span>%2$s</span>', 'azsimple'), get_the_time($timeFormat), get_the_author()); ?>
-					</div><!--meta-->
- 
-					<div class="full-post-content"><?php the_content(); ?></div>
-
-					<div class="full-post-pages"><?php wp_link_pages(); ?></div>
-
-					<div class="meta">
-						<?php _e('Filed under: ', 'azsimple'); the_category(__(', ', 'azsimple')); ?> <?php the_tags(__('Tags: ', 'azsimple'), __(', ', 'azsimple'), __('', 'azsimple')); ?> <?php edit_post_link(__('Edit', 'azsimple'), __(' &#124; ', 'azsimple'), __('', 'azsimple')); ?>
-					</div>
-
-					<div class="clearfix"></div>
-
-					<?php comments_template(); ?>
-
-				</div><!-- full-post -->
-
-				<?php endwhile; ?>
-
-			<?php endif; ?>
-
-		</div>
-
+<div id="posts">
+	<?php if (have_posts()) : ?>
+		<?php while (have_posts()) : the_post(); ?>
+			<div class="full-post" id="post-<?php the_ID(); ?>">
+				<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php printf(__('Permanent Link to %s', 'azsimple'), get_the_title()); ?>"><?php the_title(); ?></a></h2>
+				<div class="meta">
+					<?php $timeFormat = __('M d Y', 'azsimple'); printf(__('Published on: <span>%1$s</span> by <span>%2$s</span>', 'azsimple'), get_the_time($timeFormat), get_the_author()); ?>
+				</div><!--meta-->
+				<div class="full-post-content"><?php the_content(); ?></div>
+				<div class="full-post-pages"><?php wp_link_pages(); ?></div>
+				<div class="meta">
+					<?php _e('Filed under: ', 'azsimple'); the_category(__(', ', 'azsimple')); ?> <?php the_tags(__('Tags: ', 'azsimple'), __(', ', 'azsimple'), __('', 'azsimple')); ?> <?php edit_post_link(__('Edit', 'azsimple'), __(' &#124; ', 'azsimple'), __('', 'azsimple')); ?>
+				</div>
+				<div class="clearfix"></div>
+				<?php comments_template(); ?>
+			</div><!-- full-post -->
+		<?php endwhile; ?>
+	<?php endif; ?>
+</div>
 <?php get_sidebar(); ?>
-
 <?php get_footer(); ?>
