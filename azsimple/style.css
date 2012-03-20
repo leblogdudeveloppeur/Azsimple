@@ -229,6 +229,7 @@ strong { font-weight: bold; }
 	background: #ffffff url(images/content-bg.png) top left repeat-y;
 	overflow: hidden;
 	text-align: left;
+	clear: both;
 }
 
 
