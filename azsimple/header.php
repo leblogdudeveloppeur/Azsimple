@@ -4,7 +4,6 @@
 		<title><?php bloginfo('name'); ?> <?php if (is_single()) { _e('&raquo; Blog Archive', 'azsimple'); } ?> <?php wp_title(); ?></title>
 		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 		<meta name="generator" content="WordPress <?php bloginfo('version'); ?>" /><!-- leave this for stats please -->
-		<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
 		<link rel="alternate" href="<?php bloginfo('rss2_url'); ?>" type="application/rss+xml" title="RSS 2.0" />
 		<link rel="alternate" href="<?php bloginfo('rss_url'); ?>" type="text/xml" title="RSS .92" />
