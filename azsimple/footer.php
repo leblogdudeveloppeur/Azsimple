@@ -14,12 +14,14 @@
 					<p><?php echo stripslashes($azs_aboutus); ?></p>
 				</div><!-- about-us -->
 				<div class="latest-tweets">
-					<h2><?php _e('Latest Tweets', 'azsimple'); ?></h2>
-					<ul id="twitter_update_list">
-						<li><?php _e('Loading Tweets...', 'azsimple'); ?></li>
-					</ul>
-					<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
-					<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/<?php echo $azs_twitter; ?>.json?callback=twitterCallback2&amp;count=<?php echo $azs_tweetsnr; ?>"></script>
+					<?php if ($azs_twitter !== '') { ?>
+						<h2><?php _e('Latest Tweets', 'azsimple'); ?></h2>
+						<ul id="twitter_update_list">
+							<li><?php _e('Loading Tweets...', 'azsimple'); ?></li>
+						</ul>
+						<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+						<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/<?php echo $azs_twitter; ?>.json?callback=twitterCallback2&amp;count=<?php echo $azs_tweetsnr; ?>"></script>
+					<?php } ?>
 				</div><!-- latest-tweets -->
 				<div class="subscribe">
 					<h2><?php _e('Subscribe to our Newsletter', 'azsimple'); ?></h2>
