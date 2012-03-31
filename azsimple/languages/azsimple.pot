@@ -2,386 +2,423 @@
 # This file is distributed under the same license as the Azsimple package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Azsimple 1.1\n"
+"Project-Id-Version: Azsimple 1.2\n"
 "Report-Msgid-Bugs-To: http://leblogdudeveloppeur.fr\n"
-"POT-Creation-Date: 2012-03-09 00:10+0100\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-03-31 23:56+0100\n""Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: single.php:21
-msgid " &#124; "
-msgstr ""
-
-#: functions.php:232
-msgid "%s Options"
-msgstr ""
-
-#: comments.php:16
-#, possible-php-format
-msgid " to &#8220;%s&#8221;"
-msgstr ""
-
-#: archive.php:34 comments.php:16 index.php:16 search.php:19
-msgid "% Comments"
-msgstr ""
-
-#: functions.php:241
-#, possible-php-format
-msgid "%s settings reset."
-msgstr ""
-
-#: functions.php:240
-#, possible-php-format
-msgid "%s settings saved."
-msgstr ""
-
-#: footer.php:40
-#, possible-php-format
-msgid "&#169; Copyright %1$d - %2$s"
-msgstr ""
-
-#: archive.php:45 index.php:27 search.php:30
-msgid "&laquo; Newer Posts"
-msgstr ""
-
-#: header.php:5
-msgid "&raquo; Blog Archive"
-msgstr ""
-
-#: comments.php:66 comments.php:71
-msgid "*"
-msgstr ""
-
-#: single.php:21
-msgid ", "
-msgstr ""
-
-#: functions.php:34 functions.php:59
-msgid "..."
-msgstr ""
-#: archive.php:34 comments.php:16 index.php:16 search.php:19
-msgid "1 Comment"
-msgstr ""
-
-#: comments.php:76
-msgid "<acronym title=\"Uniform Resource Identifier\">URI</acronym>"
-msgstr ""
-
-#: footer.php:16 functions.php:176
-msgid "About Us"
-msgstr ""
-
-#: sidebar.php:23
-msgid "Advertising"
-msgstr ""
-
-#: archive.php:15 archive.php:17 archive.php:19
-#, possible-php-format
-msgid "Archive for %s:"
-msgstr ""
-
-#: archive.php:11
-#, possible-php-format
-msgid "Archive for the &#8216;%s&#8217; category:"
-msgstr ""
-
-#: sidebar.php:39
-msgid "Archives"
-msgstr ""
-
-#: archive.php:21
-msgid "Author Archive:"
-msgstr ""
-
-#: functions.php:113
-msgid "Azsimple Theme Options"
-msgstr ""
-
-#: archive.php:23
-msgid "Blog Archives:"
-msgstr ""
-
-#: sidebar.php:32
-msgid "Categories"
-msgstr ""
-
-#: featured-posts.php:25
-msgid "Continue Reading"
-msgstr ""
-
-#: comments.php:71
-msgid "E-mail"
-msgstr ""
-
-#: single.php:21
-msgid "Edit"
-msgstr ""
-
-#: functions.php:177
-msgid "Enter a short presentation text"
-msgstr ""
-
-#: functions.php:185 functions.php:192
-msgid "Enter advertising code"
-msgstr ""
-
-#: functions.php:128
-msgid "Enter the favicon URL"
-msgstr ""
-
-#: functions.php:121
-msgid ""
-"Enter the logo URL. Maximum logo width = 400px. Maximum logo height = 50px."
-msgstr ""
-
-#: functions.php:135
-msgid "Enter the name of the category that contains the featured posts"
-msgstr ""
-
-#: functions.php:142
-msgid "Enter the number of featured posts you want to show"
-msgstr ""
-
-#: functions.php:163
-msgid "Enter the number of tweets you want to show in the footer"
-msgstr ""
-
-#: functions.php:149
-msgid "Enter your Facebook URL: http://...."
-msgstr ""
-
-#: functions.php:170
-msgid "Enter your Feedburner ID"
-msgstr ""
-
-#: functions.php:156
-msgid "Enter your Twitter ID"
-msgstr ""
-
-#: footer.php:33
-msgid "Enter your e-mail"
-msgstr ""
-
-#: footer.php:31
-msgid "Enter your e-mail to get the latest posts and updates:"
-msgstr ""
-
-#: 404.php:7
+#: 404.php:3
 msgid "Error 404: No Page Found!"
 msgstr ""
 
-#: archive.php:15
+#: archive.php:6
+#, php-format
+msgid "Archive for the &#8216;%s&#8217; category:"
+msgstr ""
+
+#: archive.php:8
+#, php-format
+msgid "Posts Tagged &#8216;%s&#8217;:"
+msgstr ""
+
+#: archive.php:10
 msgid "F jS, Y"
 msgstr ""
 
-#: archive.php:17
+#: archive.php:10
+#: archive.php:12
+#: archive.php:14
+#, php-format
+msgid "Archive for %s:"
+msgstr ""
+
+#: archive.php:12
 msgid "F, Y"
 msgstr ""
 
-#: functions.php:148
-msgid "Facebook URL"
+#: archive.php:14
+msgid "Y"
 msgstr ""
 
-#: functions.php:127
-msgid "Favicon URL"
+#: archive.php:16
+msgid "Author Archive:"
 msgstr ""
 
-#: functions.php:134
-msgid "Featured Posts Category"
+#: archive.php:18
+msgid "Blog Archives:"
 msgstr ""
 
-#: functions.php:169
-msgid "Feedburner ID"
+#: archive.php:24
+#, php-format
+msgid "Permanent Link to %s:"
 msgstr ""
 
-#: single.php:21
-msgid "Filed under: "
-msgstr ""
-
-#: header.php:64
-#, possible-php-format
-msgid ""
-"Follow us: <a href=\"%1$s\">Facebook</a>, <a href=\"http://twitter.com/%2$s"
-"\">Twitter</a>, <a href=\"%3$s\">RSS Feed</a>"
-msgstr ""
-
-#: functions.php:184
-msgid "Header Advertising 468x60"
-msgstr ""
-
-#: footer.php:21
-msgid "Latest Tweets"
-msgstr ""
-
-#: archive.php:34 index.php:16 search.php:19
-msgid "Leave a Comment"
-msgstr ""
-
-#: comments.php:45
-msgid "Leave a Reply"
-msgstr ""
-
-#: comments.php:45
-#, possible-php-format
-msgid "Leave a Reply to %s"
-msgstr ""
-
-#: sidebar.php:46
-msgid "Links"
-msgstr ""
-
-#: footer.php:23
-msgid "Loading Tweets..."
-msgstr ""
-
-#: comments.php:60
-msgid "Log out &raquo;"
-msgstr ""
-
-#: comments.php:60
-msgid "Log out of this account"
-msgstr ""
-
-#: comments.php:60
-#, possible-php-format
-msgid "Logged in as <a href=\"%1$s\">%2$s</a>."
-msgstr ""
-
-#: functions.php:120
-msgid "Logo URL"
-msgstr ""
-
-#: archive.php:34 index.php:16 page.php:13 search.php:19 single.php:13
+#: archive.php:26
+#: index.php:11
+#: page.php:8
+#: search.php:11
+#: single.php:8
 msgid "M d Y"
 msgstr ""
 
-#: functions.php:11
-msgid "Menu 1"
+#: archive.php:26
+#: index.php:11
+#: search.php:11
+#, php-format
+msgid "Published on: <span>%1$s</span> by <span>%2$s</span> - "
 msgstr ""
 
-#: comments.php:66
-msgid "Name"
+#: archive.php:26
+#: index.php:11
+#: search.php:11
+msgid "Leave a Comment"
 msgstr ""
 
-#: comments.php:16
-msgid "No Comments"
+#: archive.php:26
+#: comments.php:13
+#: index.php:11
+#: search.php:11
+msgid "1 Comment"
 msgstr ""
 
-#: search.php:36
-#, possible-php-format
-msgid "Nothing found for \"%s\"!"
+#: archive.php:26
+#: comments.php:13
+#: index.php:11
+#: search.php:11
+msgid "% Comments"
 msgstr ""
 
-#: functions.php:141
-msgid "Number of Featured Posts"
-msgstr ""
-
-#: functions.php:162
-msgid "Number of Tweets"
-msgstr ""
-
-#: archive.php:44 index.php:26 search.php:29
+#: archive.php:34
+#: index.php:19
+#: search.php:19
 msgid "Older Posts &raquo;"
 msgstr ""
 
-#: index.php:14 page.php:11 search.php:17 single.php:11
-#, possible-php-format
-msgid "Permanent Link to %s"
-msgstr ""
-
-#: archive.php:32
-#, possible-php-format
-msgid "Permanent Link to %s:"
+#: archive.php:35
+#: index.php:20
+#: search.php:20
+msgid "&laquo; Newer Posts"
 msgstr ""
 
 #: comments.php:4
 msgid "Please do not load this page directly. Thanks!"
 msgstr ""
 
-#: archive.php:13
-#, possible-php-format
-msgid "Posts Tagged &#8216;%s&#8217;:"
-msgstr ""
-
-#: footer.php:43
-msgid ""
-"Powered by <a href=\"http://www.wordpress.org\">Wordpress</a> - Azsimple "
-"Theme by <a href=\"http://azmind.com\" title=\"Free Wordpress Themes and Web "
-"Design Resources\">Azmind.com</a>"
-msgstr ""
-
-#: page.php:13 single.php:13
-#, possible-php-format
-msgid "Published on: <span>%1$s</span> by <span>%2$s</span>"
-msgstr ""
-
-#: archive.php:34 index.php:16 search.php:19
-#, possible-php-format
-msgid "Published on: <span>%1$s</span> by <span>%2$s</span> - "
-msgstr ""
-
-#: functions.php:405
-msgid "Reset"
-msgstr ""
-
-#: functions.php:389 functions.php:399
-msgid "Save changes"
-msgstr ""
-
-#: search.php:9
-#, possible-php-format
-msgid "Search results for \"%s\":"
-msgstr ""
-
-#: functions.php:191
-msgid "Sidebar Advertising"
-msgstr ""
-
-#: comments.php:36 comments.php:94
-msgid "Sorry, the comment form is closed at this time."
-msgstr ""
-
-#: comments.php:86
-msgid "Submit Comment"
-msgstr ""
-
-#: footer.php:34
-msgid "Subscribe"
-msgstr ""
-
-#: footer.php:30
-msgid "Subscribe to our Newsletter"
-msgstr ""
-
-#: single.php:21
-msgid "Tags: "
-msgstr ""
-
 #: comments.php:7
 msgid "This post is password protected. Enter the password to view comments."
 msgstr ""
 
-#: functions.php:155
+#: comments.php:13
+msgid "No Comments"
+msgstr ""
+
+#: comments.php:13
+#, php-format
+msgid " to &#8220;%s&#8221;"
+msgstr ""
+
+#: comments.php:24
+#: comments.php:66
+msgid "Sorry, the comment form is closed at this time."
+msgstr ""
+
+#: comments.php:30
+msgid "Leave a Reply"
+msgstr ""
+
+#: comments.php:30
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: comments.php:35
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr ""
+
+#: comments.php:39
+#, php-format
+msgid "Logged in as <a href=\"%1$s\">%2$s</a>."
+msgstr ""
+
+#: comments.php:39
+msgid "Log out of this account"
+msgstr ""
+
+#: comments.php:39
+msgid "Log out &raquo;"
+msgstr ""
+
+#: comments.php:43
+msgid "Name"
+msgstr ""
+
+#: comments.php:43
+#: comments.php:47
+msgid "*"
+msgstr ""
+
+#: comments.php:47
+msgid "E-mail"
+msgstr ""
+
+#: comments.php:51
+msgid "<acronym title=\"Uniform Resource Identifier\">URI</acronym>"
+msgstr ""
+
+#: comments.php:58
+msgid "Submit Comment"
+msgstr ""
+
+#: featured-posts.php:23
+msgid "Continue Reading"
+msgstr ""
+
+#: footer.php:13
+#: functions.php:179
+msgid "About Us"
+msgstr ""
+
+#: footer.php:18
+msgid "Latest Tweets"
+msgstr ""
+
+#: footer.php:20
+msgid "Loading Tweets..."
+msgstr ""
+
+#: footer.php:27
+msgid "Subscribe to our Newsletter"
+msgstr ""
+
+#: footer.php:28
+msgid "Enter your e-mail to get the latest posts and updates:"
+msgstr ""
+
+#: footer.php:30
+msgid "Enter your e-mail"
+msgstr ""
+
+#: footer.php:30
+msgid "en_US"
+msgstr ""
+
+#: footer.php:31
+msgid "Subscribe"
+msgstr ""
+
+#: footer.php:36
+#, php-format
+msgid "&#169; Copyright %1$d - %2$s"
+msgstr ""
+
+#: footer.php:39
+msgid "Powered by <a href=\"http://www.wordpress.org\">Wordpress</a> - Azsimple Theme by <a href=\"http://azmind.com\" title=\"Free Wordpress Themes and Web Design Resources\">Azmind.com</a>"
+msgstr ""
+
+#: functions.php:13
+msgid "Menu 1"
+msgstr ""
+
+#: functions.php:37
+#: functions.php:62
+msgid "..."
+msgstr ""
+
+#: functions.php:116
+msgid "Azsimple Theme Options"
+msgstr ""
+
+#: functions.php:123
+msgid "Logo URL"
+msgstr ""
+
+#: functions.php:124
+msgid "Enter the logo URL. Maximum logo width = 400px. Maximum logo height = 50px."
+msgstr ""
+
+#: functions.php:130
+msgid "Favicon URL"
+msgstr ""
+
+#: functions.php:131
+msgid "Enter the favicon URL"
+msgstr ""
+
+#: functions.php:137
+msgid "Featured Posts Category"
+msgstr ""
+
+#: functions.php:138
+msgid "Enter the name of the category that contains the featured posts"
+msgstr ""
+
+#: functions.php:144
+msgid "Number of Featured Posts"
+msgstr ""
+
+#: functions.php:145
+msgid "Enter the number of featured posts you want to show"
+msgstr ""
+
+#: functions.php:151
+msgid "Facebook URL"
+msgstr ""
+
+#: functions.php:152
+msgid "Enter your Facebook URL: http://...."
+msgstr ""
+
+#: functions.php:158
 msgid "Twitter ID"
 msgstr ""
 
-#: sidebar.php:18
+#: functions.php:159
+msgid "Enter your Twitter ID"
+msgstr ""
+
+#: functions.php:165
+msgid "Number of Tweets"
+msgstr ""
+
+#: functions.php:166
+msgid "Enter the number of tweets you want to show in the footer"
+msgstr ""
+
+#: functions.php:172
+msgid "Feedburner ID"
+msgstr ""
+
+#: functions.php:173
+msgid "Enter your Feedburner ID"
+msgstr ""
+
+#: functions.php:180
+msgid "Enter a short presentation text"
+msgstr ""
+
+#: functions.php:187
+msgid "Header Advertising 468x60"
+msgstr ""
+
+#: functions.php:188
+#: functions.php:195
+msgid "Enter advertising code"
+msgstr ""
+
+#: functions.php:194
+msgid "Sidebar Advertising"
+msgstr ""
+
+#: functions.php:235
+#, php-format
+msgid "%s Options"
+msgstr ""
+
+#: functions.php:243
+#, php-format
+msgid "%s settings saved."
+msgstr ""
+
+#: functions.php:244
+#, php-format
+msgid "%s settings reset."
+msgstr ""
+
+#: functions.php:392
+#: functions.php:402
+msgid "Save changes"
+msgstr ""
+
+#: functions.php:408
+msgid "Reset"
+msgstr ""
+
+#: header.php:4
+msgid "&raquo; Blog Archive"
+msgstr ""
+
+#: header.php:54
+msgid "Follow us: "
+msgstr ""
+
+#: header.php:56
+msgid "Facebook"
+msgstr ""
+
+#: header.php:56
+#: header.php:59
+#: single.php:13
+msgid ", "
+msgstr ""
+
+#: header.php:59
+msgid "Twitter"
+msgstr ""
+
+#: header.php:61
+msgid "RSS Feed"
+msgstr ""
+
+#: index.php:9
+#: page.php:6
+#: search.php:9
+#: single.php:6
+#, php-format
+msgid "Permanent Link to %s"
+msgstr ""
+
+#: page.php:8
+#: single.php:8
+#, php-format
+msgid "Published on: <span>%1$s</span> by <span>%2$s</span>"
+msgstr ""
+
+#: search.php:4
+#, php-format
+msgid "Search results for \"%s\":"
+msgstr ""
+
+#: search.php:24
+#, php-format
+msgid "Nothing found for \"%s\"!"
+msgstr ""
+
+#: sidebar.php:14
 msgid "Type search text and press enter..."
 msgstr ""
 
-#: archive.php:19 footer.php:40
-msgid "Y"
+#: sidebar.php:18
+msgid "Advertising"
 msgstr ""
 
-#: comments.php:52
-#, possible-php-format
-msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
-msgstr ""
+#: sidebar.php:24
+msgid "Categories"
 msgstr ""
 
-#: footer.php:33
-msgid "en_US"
+#: sidebar.php:30
+msgid "Archives"
+msgstr ""
+
+#: sidebar.php:36
+msgid "Links"
+msgstr ""
+
+#: single.php:13
+msgid "Filed under: "
+msgstr ""
+
+#: single.php:13
+msgid "Tags: "
+msgstr ""
+
+#: single.php:13
+msgid "Edit"
+msgstr ""
+
+#: single.php:13
+msgid " &#124; "
 msgstr ""
