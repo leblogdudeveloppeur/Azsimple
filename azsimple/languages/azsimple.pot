@@ -1,14 +1,17 @@
-# Copyright (C) 2012 Azsimple
-# This file is distributed under the same license as the Azsimple package.
 msgid ""
 msgstr ""
 "Project-Id-Version: Azsimple 1.2\n"
-"Report-Msgid-Bugs-To: http://leblogdudeveloppeur.fr\n"
-"POT-Creation-Date: 2012-03-31 23:56+0100\n""Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-04-07 16:44+0100\n"
+"PO-Revision-Date: 2012-04-07 16:44+0100\n"
+"Last-Translator: Le blog du développeur <contact@leblogdudeveloppeur.fr>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;_x;_ex;_n:1,2;esc_attr__;esc_attr_e;esc_attr_x;esc_html__;esc_html_e;esc_html_x\n"
+"X-Poedit-Basepath: ..\\\n"
+"X-Poedit-SearchPath-0: .\n"
 
 #: 404.php:3
 msgid "Error 404: No Page Found!"
@@ -78,14 +81,12 @@ msgid "Leave a Comment"
 msgstr ""
 
 #: archive.php:26
-#: comments.php:13
 #: index.php:11
 #: search.php:11
 msgid "1 Comment"
 msgstr ""
 
 #: archive.php:26
-#: comments.php:13
 #: index.php:11
 #: search.php:11
 msgid "% Comments"
@@ -111,65 +112,62 @@ msgstr ""
 msgid "This post is password protected. Enter the password to view comments."
 msgstr ""
 
-#: comments.php:13
-msgid "No Comments"
-msgstr ""
-
-#: comments.php:13
+#: comments.php:16
 #, php-format
-msgid " to &#8220;%s&#8221;"
+msgid "%1$d Comment to &#8220;%2$s&#8221;"
+msgid_plural "%1$d Comments to &#8220;%2$s&#8221;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:18
+#, php-format
+msgid "No Comments to &#8220;%s&#8221;"
 msgstr ""
 
-#: comments.php:24
-#: comments.php:66
+#: comments.php:32
+#: comments.php:74
 msgid "Sorry, the comment form is closed at this time."
 msgstr ""
 
-#: comments.php:30
+#: comments.php:38
 msgid "Leave a Reply"
 msgstr ""
 
-#: comments.php:30
+#: comments.php:38
 #, php-format
 msgid "Leave a Reply to %s"
 msgstr ""
 
-#: comments.php:35
+#: comments.php:43
 #, php-format
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr ""
 
-#: comments.php:39
+#: comments.php:47
 #, php-format
-msgid "Logged in as <a href=\"%1$s\">%2$s</a>."
-msgstr ""
-
-#: comments.php:39
-msgid "Log out of this account"
-msgstr ""
-
-#: comments.php:39
-msgid "Log out &raquo;"
-msgstr ""
-
-#: comments.php:43
-msgid "Name"
-msgstr ""
-
-#: comments.php:43
-#: comments.php:47
-msgid "*"
-msgstr ""
-
-#: comments.php:47
-msgid "E-mail"
+msgid "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of this account\">Log out &raquo;</a>"
 msgstr ""
 
 #: comments.php:51
+#: comments.php:55
+msgid "*"
+msgstr ""
+
+#: comments.php:51
+#, php-format
+msgid "Name %s"
+msgstr ""
+
+#: comments.php:55
+#, php-format
+msgid "E-mail %s"
+msgstr ""
+
+#: comments.php:59
 msgid "<acronym title=\"Uniform Resource Identifier\">URI</acronym>"
 msgstr ""
 
-#: comments.php:58
+#: comments.php:66
 msgid "Submit Comment"
 msgstr ""
 
@@ -178,7 +176,7 @@ msgid "Continue Reading"
 msgstr ""
 
 #: footer.php:13
-#: functions.php:179
+#: functions.php:177
 msgid "About Us"
 msgstr ""
 
@@ -223,117 +221,118 @@ msgstr ""
 msgid "Menu 1"
 msgstr ""
 
-#: functions.php:37
-#: functions.php:62
-msgid "..."
+#: functions.php:35
+#: functions.php:60
+#, php-format
+msgid "%s..."
 msgstr ""
 
-#: functions.php:116
+#: functions.php:114
 msgid "Azsimple Theme Options"
 msgstr ""
 
-#: functions.php:123
+#: functions.php:121
 msgid "Logo URL"
 msgstr ""
 
-#: functions.php:124
+#: functions.php:122
 msgid "Enter the logo URL. Maximum logo width = 400px. Maximum logo height = 50px."
 msgstr ""
 
-#: functions.php:130
+#: functions.php:128
 msgid "Favicon URL"
 msgstr ""
 
-#: functions.php:131
+#: functions.php:129
 msgid "Enter the favicon URL"
 msgstr ""
 
-#: functions.php:137
+#: functions.php:135
 msgid "Featured Posts Category"
 msgstr ""
 
-#: functions.php:138
+#: functions.php:136
 msgid "Enter the name of the category that contains the featured posts"
 msgstr ""
 
-#: functions.php:144
+#: functions.php:142
 msgid "Number of Featured Posts"
 msgstr ""
 
-#: functions.php:145
+#: functions.php:143
 msgid "Enter the number of featured posts you want to show"
 msgstr ""
 
-#: functions.php:151
+#: functions.php:149
 msgid "Facebook URL"
 msgstr ""
 
-#: functions.php:152
+#: functions.php:150
 msgid "Enter your Facebook URL: http://...."
 msgstr ""
 
-#: functions.php:158
+#: functions.php:156
 msgid "Twitter ID"
 msgstr ""
 
-#: functions.php:159
+#: functions.php:157
 msgid "Enter your Twitter ID"
 msgstr ""
 
-#: functions.php:165
+#: functions.php:163
 msgid "Number of Tweets"
 msgstr ""
 
-#: functions.php:166
+#: functions.php:164
 msgid "Enter the number of tweets you want to show in the footer"
 msgstr ""
 
-#: functions.php:172
+#: functions.php:170
 msgid "Feedburner ID"
 msgstr ""
 
-#: functions.php:173
+#: functions.php:171
 msgid "Enter your Feedburner ID"
 msgstr ""
 
-#: functions.php:180
+#: functions.php:178
 msgid "Enter a short presentation text"
 msgstr ""
 
-#: functions.php:187
+#: functions.php:185
 msgid "Header Advertising 468x60"
 msgstr ""
 
-#: functions.php:188
-#: functions.php:195
+#: functions.php:186
+#: functions.php:193
 msgid "Enter advertising code"
 msgstr ""
 
-#: functions.php:194
+#: functions.php:192
 msgid "Sidebar Advertising"
 msgstr ""
 
-#: functions.php:235
+#: functions.php:233
 #, php-format
 msgid "%s Options"
 msgstr ""
 
-#: functions.php:243
+#: functions.php:241
 #, php-format
 msgid "%s settings saved."
 msgstr ""
 
-#: functions.php:244
+#: functions.php:242
 #, php-format
 msgid "%s settings reset."
 msgstr ""
 
-#: functions.php:392
-#: functions.php:402
+#: functions.php:390
+#: functions.php:400
 msgid "Save changes"
 msgstr ""
 
-#: functions.php:408
+#: functions.php:406
 msgid "Reset"
 msgstr ""
 
@@ -341,26 +340,24 @@ msgstr ""
 msgid "&raquo; Blog Archive"
 msgstr ""
 
-#: header.php:54
-msgid "Follow us: "
-msgstr ""
-
 #: header.php:56
-msgid "Facebook"
+#, php-format
+msgid "Follow us: <a href=\"%1$s\">Facebook</a>, <a href=\"http://twitter.com/%2$s\">Twitter</a>, <a href=\"%3$s\">RSS Feed</a>"
 msgstr ""
 
-#: header.php:56
-#: header.php:59
-#: single.php:13
-msgid ", "
+#: header.php:58
+#, php-format
+msgid "Follow us: <a href=\"%1$s\">Facebook</a>, <a href=\"%2$s\">RSS Feed</a>"
 msgstr ""
 
-#: header.php:59
-msgid "Twitter"
+#: header.php:60
+#, php-format
+msgid "Follow us: <a href=\"http://twitter.com/%1$s\">Twitter</a>, <a href=\"%2$s\">RSS Feed</a>"
 msgstr ""
 
-#: header.php:61
-msgid "RSS Feed"
+#: header.php:62
+#, php-format
+msgid "Follow us: <a href=\"%s\">RSS Feed</a>"
 msgstr ""
 
 #: index.php:9
@@ -408,7 +405,12 @@ msgid "Links"
 msgstr ""
 
 #: single.php:13
-msgid "Filed under: "
+#, php-format
+msgid "Filed under: %1$s %2$s"
+msgstr ""
+
+#: single.php:13
+msgid ", "
 msgstr ""
 
 #: single.php:13
@@ -422,3 +424,4 @@ msgstr ""
 #: single.php:13
 msgid " &#124; "
 msgstr ""
+

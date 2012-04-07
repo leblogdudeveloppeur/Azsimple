@@ -10,7 +10,7 @@
 				<div class="full-post-content"><?php the_content(); ?></div>
 				<div class="full-post-pages"><?php wp_link_pages(); ?></div>
 				<div class="meta">
-					<?php _e('Filed under: ', 'azsimple'); the_category(__(', ', 'azsimple')); ?> <?php the_tags(__('Tags: ', 'azsimple'), __(', ', 'azsimple'), __('', 'azsimple')); ?> <?php edit_post_link(__('Edit', 'azsimple'), __(' &#124; ', 'azsimple'), __('', 'azsimple')); ?>
+					<?php printf(__('Filed under: %1$s %2$s', 'azsimple'), get_the_category_list(__(', ', 'azsimple')), get_the_tag_list(__('Tags: ', 'azsimple'), __(', ', 'azsimple'), '')); ?> <?php edit_post_link(__('Edit', 'azsimple'), __(' &#124; ', 'azsimple'), ''); ?>
 				</div>
 				<div class="clearfix"></div>
 				<?php comments_template(); ?>

@@ -31,15 +31,13 @@ function limits($max_char, $more_link_text = '(more...)', $stripteaser = 0, $mor
    }
    else if ((strlen($content)>$max_char) && ($espacio = strpos($content, " ", $max_char ))) {
         $content = substr($content, 0, $espacio);
-        $content = $content;
-        echo $content;
-
-        echo __('...', 'azsimple');
+        printf(__('%s...', 'azsimple'), $content);
+        
         echo "<div class=";
-		echo "'continue-reading'>";
-		echo "<a href='";
+		echo "\"continue-reading\">";
+		echo "<a href=\"";
         the_permalink();
-        echo "'>".$more_link_text."</a></div>";
+        echo "\">".$more_link_text."</a></div>";
    }
    else {
       echo $content;
@@ -56,10 +54,7 @@ function limits2($max_char, $more_link_text = '(more...)', $stripteaser = 0, $mo
    }
    else if ((strlen($content)>$max_char) && ($espacio = strpos($content, " ", $max_char ))) {
         $content = substr($content, 0, $espacio);
-        $content = $content;
-        echo $content;
-
-        _e('...', 'azsimple');
+		printf(__('%s...', 'azsimple'), $content);
    }
    else {
       echo $content;

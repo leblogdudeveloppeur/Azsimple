@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <div id="posts">
 	<?php if (have_posts()) : ?>
-		<div class="search-results"><h2><?php printf(__('Search results for "%s":', 'azsimple'), $_GET['s']); ?></h2></div>
+		<div class="search-results"><h2><?php printf(__('Search results for "%s":', 'azsimple'), get_search_query()); ?></h2></div>
 		<?php while (have_posts()) : the_post(); ?>
 			<div class="single-post" id="post-<?php the_ID(); ?>">
 				<div class="single-post-image"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php zt_get_thumbnail(); ?></a></div>
@@ -21,7 +21,7 @@
 			<div class="clearfix"></div>
 		</div>
 	<?php else: ?>
-		<div class="search-results"><h2><?php printf(__('Nothing found for "%s"!', 'azsimple'), $_GET['s']); ?></h2></div>
+		<div class="search-results"><h2><?php printf(__('Nothing found for "%s"!', 'azsimple'), get_search_query()); ?></h2></div>
 	<?php endif; ?>
 </div>
 <?php get_sidebar(); ?>

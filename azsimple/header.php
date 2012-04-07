@@ -51,14 +51,17 @@
 				<div class="main-menu-container">
 					<?php wp_nav_menu(array('theme_location' => 'menu-1', 'container' => 'div', 'container_class' => 'main-menu')); ?>
 					<div class="social">
-						<?php _e('Follow us: ', 'azsimple'); ?>
-						<?php if ($azs_facebook !== '') { ?>
-							<a href="<?php echo $azs_facebook; ?>"><?php _e('Facebook', 'azsimple'); ?></a><?php _e(', ', 'azsimple'); ?>
-						<?php } ?>
-						<?php if ($azs_twitter !== '') { ?>
-							<a href="http://twitter.com/<?php echo $azs_twitter; ?>"><?php _e('Twitter', 'azsimple'); ?></a><?php _e(', ', 'azsimple'); ?>
-						<?php } ?>
-						<a href="<?php get_bloginfo('rss2_url'); ?>"><?php _e('RSS Feed', 'azsimple'); ?></a>
+						<?php
+							if ($azs_facebook !== '' && $azs_twitter !== '') {
+								printf(__('Follow us: <a href="%1$s">Facebook</a>, <a href="http://twitter.com/%2$s">Twitter</a>, <a href="%3$s">RSS Feed</a>', 'azsimple'), $azs_facebook, $azs_twitter, get_bloginfo('rss2_url'));
+							} elseif ($azs_facebook !== '' && $azs_twitter === '') {
+								printf(__('Follow us: <a href="%1$s">Facebook</a>, <a href="%2$s">RSS Feed</a>', 'azsimple'), $azs_facebook, get_bloginfo('rss2_url'));
+							} elseif ($azs_facebook === '' && $azs_twitter !== '') {
+								printf(__('Follow us: <a href="http://twitter.com/%1$s">Twitter</a>, <a href="%2$s">RSS Feed</a>', 'azsimple'), $azs_twitter, get_bloginfo('rss2_url'));
+							} elseif ($azs_facebook === '' && $azs_twitter === '') {
+								printf(__('Follow us: <a href="%s">RSS Feed</a>', 'azsimple'), get_bloginfo('rss2_url'));
+							}
+						?>
 					</div>
 				</div>
 			</div>
