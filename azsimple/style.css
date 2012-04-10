@@ -89,6 +89,7 @@ body {
 }
 
 strong { font-weight: bold; }
+em { font-style: italic; }
 
 
 /* ------- Header ------- */
@@ -392,12 +393,17 @@ h2.featured-post-title a:hover { color: #37badc; text-decoration: none; }
 .full-post a { color: #37badc; text-decoration: none; }
 .full-post a:hover { color: #888888; text-decoration: none; }
 
-.full-post h1 { font-size: 28px; font-weight: normal; color: #3d3d3d; line-height: 32px; }
-.full-post h2 { font-size: 24px; font-weight: normal; color: #3d3d3d; line-height: 30px; }
-.full-post h3 { font-size: 20px; font-weight: normal; color: #3d3d3d; line-height: 30px; }
-.full-post h4 { font-size: 16px; font-weight: normal; color: #3d3d3d; line-height: 30px; }
-.full-post h5 { font-size: 12px; font-weight: normal; color: #3d3d3d; line-height: 30px; }
-.full-post h6 { font-size: 10px; font-weight: normal; color: #3d3d3d; line-height: 30px; }
+.full-post h1 { font-size: 2.33em; font-weight: normal; color: #3d3d3d; line-height: 1.3em; }
+.full-post h2 { font-size: 1.97em; font-weight: normal; color: #3d3d3d; line-height: 1.3em; }
+.full-post h3 { font-size: 1.66em; font-weight: normal; color: #3d3d3d; line-height: 1.3em; }
+.full-post h4 { font-size: 1.4em; font-weight: normal; color: #3d3d3d; line-height: 1.3em; }
+.full-post h5 { font-size: 1.18em; font-weight: normal; color: #3d3d3d; line-height: 1.3em; }
+.full-post h6 { font-size: 1em; font-weight: normal; color: #3d3d3d; line-height: 1.3em; }
+
+.full-post .full-post-content > h3 { line-height: 2.5em; }
+.full-post .full-post-content > h4 { line-height: 2.5em; }
+.full-post .full-post-content > h5 { line-height: 2.5em; }
+.full-post .full-post-content > h6 { line-height: 2.5em; }
 
 .full-post h1 a,
 .full-post h2 a,
@@ -436,9 +442,13 @@ h2.featured-post-title a:hover { color: #37badc; text-decoration: none; }
 
 .full-post blockquote { padding: 5px 35px; }
 
-.full-post ul { padding: 5px 35px; list-style-type: square; }
 .full-post ol { padding: 5px 35px; list-style-type: decimal; }
+.full-post ul { padding: 5px 35px; }
+.full-post ul { list-style-type: square; }
+.full-post ul ul { list-style-type: disc; }
+.full-post ul ul ul { list-style-type: circle; }
 
+.full-post code { color: #AAAAAA; font-family: Consolas,Monaco,"Courier New",Courier,monospace; }
 
 /* ------- Sidebar ------- */
 
