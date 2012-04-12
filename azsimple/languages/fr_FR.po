@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Azsimple 1.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-07 16:44+0100\n"
-"PO-Revision-Date: 2012-04-07 17:08+0100\n"
+"PO-Revision-Date: 2012-04-12 16:46+0100\n"
 "Last-Translator: Le blog du développeur <contact@leblogdudeveloppeur.fr>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -323,12 +323,12 @@ msgstr "Options d’%s"
 #: functions.php:241
 #, php-format
 msgid "%s settings saved."
-msgstr "%s configuration enregistrée."
+msgstr "Configuration d’%s enregistrée."
 
 #: functions.php:242
 #, php-format
 msgid "%s settings reset."
-msgstr "%s configuration réinitialisée."
+msgstr "Configuration d’%s réinitialisée."
 
 #: functions.php:390
 #: functions.php:400
