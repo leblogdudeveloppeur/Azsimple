@@ -203,16 +203,11 @@ function mytheme_add_admin() {
 
     global $themename, $shortname, $options;
 
-    if ( $_GET['page'] == basename(__FILE__) ) {
-
-        if ( 'save' == $_REQUEST['action'] ) {
-
+    if ($_GET['page'] == basename(__FILE__)) {
+        if ('save' == $_REQUEST['action']) {
                 foreach ($options as $value) {
-                    update_option( $value['id'], $_REQUEST[ $value['id'] ] ); }
-
-                foreach ($options as $value) {
-                    if( isset( $_REQUEST[ $value['id'] ] ) ) { update_option( $value['id'], $_REQUEST[ $value['id'] ]  ); } else { delete_option( $value['id'] ); } }
-
+                	update_option($value['id'], $_REQUEST[$value['id']]);
+                }
                 header("Location: themes.php?page=functions.php&saved=true");
                 die;
 
@@ -287,7 +282,7 @@ case 'text':
 			<img style="padding:5px; background:#FFF; border:1px solid #ddd;" src="<?php bloginfo('template_url');?>/images/<?php echo $value['image'];?>" alt="image" />
 		</div>
 	<?php } ?>
-	<input style="width:200px;" name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>" type="<?php echo $value['type']; ?>" value="<?php if ( get_settings( $value['id'] ) != "") { echo stripslashes(get_settings( $value['id'] )); } else { echo stripslashes($value['std']); } ?>" />
+	<input style="width:200px;" name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>" type="<?php echo $value['type']; ?>" value="<?php echo stripslashes(get_settings($value['id'])); ?>" />
 	<br/>
 	<span style="font-family:Arial, sans-serif; font-size:11px; font-weight:bold; color:#444; display:block; padding:5px 0px;">
 		<?php echo $value['desc']; ?>
@@ -309,7 +304,7 @@ case 'textarea':
 			<img style="padding:5px; background:#FFF; border:1px solid #ddd;" src="<?php bloginfo('template_url');?>/images/<?php echo $value['image'];?>" alt="image" />
 		</div>
 	<?php } ?>
-	<textarea name="<?php echo $value['id']; ?>" style="width:400px; height:200px;" type="<?php echo $value['type']; ?>" cols="" rows=""><?php if ( get_settings( $value['id'] ) != "") { echo stripslashes(get_settings( $value['id'] )); } else { echo stripslashes($value['std']); } ?></textarea>
+	<textarea name="<?php echo $value['id']; ?>" style="width:400px; height:200px;" type="<?php echo $value['type']; ?>" cols="" rows=""><?php echo stripslashes(get_settings( $value['id'] )); ?></textarea>
 	<br/>
 	<span style="font-family:Arial, sans-serif; font-size:11px; font-weight:bold; color:#444; display:block; padding:5px 0px;">
 		<?php echo $value['desc']; ?>
