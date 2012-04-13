@@ -5,404 +5,376 @@ load_theme_textdomain('azsimple', TEMPLATEPATH . '/languages');
 /* ------- Adding a custom menu ------- */
 add_theme_support('menus');
 
-add_action( 'init', 'register_my_menus' );
+add_action('init', 'register_my_menus');
 
 function register_my_menus() {
 	register_nav_menus(
 		array(
-			'menu-1' => __('Menu 1', 'azsimple'),
+			'menu-1' => __('Menu 1', 'azsimple')
 		)
 	);
 }
 
 /* ------- Register sidebar ------- */
-if ( function_exists('register_sidebars') )
-    register_sidebars(1);
-
-
-function limits($max_char, $more_link_text = '(more...)', $stripteaser = 0, $more_file = '') {
-    $content = get_the_content($more_link_text, $stripteaser, $more_file);
-    $content = apply_filters('the_content', $content);
-    $content = str_replace(']]>', ']]&gt;', $content);
-	$content = strip_tags($content, '');
-
-   if (strlen($_GET['p']) > 0) {
-      echo $content;
-   }
-   else if ((strlen($content)>$max_char) && ($espacio = strpos($content, " ", $max_char ))) {
-        $content = substr($content, 0, $espacio);
-        printf(__('%s...', 'azsimple'), $content);
-        
-        echo "<div class=";
-		echo "\"continue-reading\">";
-		echo "<a href=\"";
-        the_permalink();
-        echo "\">".$more_link_text."</a></div>";
-   }
-   else {
-      echo $content;
-   }
+if (function_exists('register_sidebars')) {
+	register_sidebars(1);
 }
-function limits2($max_char, $more_link_text = '(more...)', $stripteaser = 0, $more_file = '') {
-    $content = get_the_content($more_link_text, $stripteaser, $more_file);
-    $content = apply_filters('the_content', $content);
-    $content = str_replace(']]>', ']]&gt;', $content);
+
+function limits($max_char, $more_link_text = '(more...)', $stripteaser = 0, $more_file = '', $showMoreLink = true) {
+	$content = get_the_content($more_link_text, $stripteaser, $more_file);
+	$content = apply_filters('the_content', $content);
+	$content = str_replace(']]>', ']]&gt;', $content);
 	$content = strip_tags($content, '');
 
    if (strlen($_GET['p']) > 0) {
-      echo $content;
-   }
-   else if ((strlen($content)>$max_char) && ($espacio = strpos($content, " ", $max_char ))) {
-        $content = substr($content, 0, $espacio);
+	  echo $content;
+   } elseif ((strlen($content) > $max_char) && ($espacio = strpos($content, " ", $max_char))) {
+		$content = substr($content, 0, $espacio);
 		printf(__('%s...', 'azsimple'), $content);
-   }
-   else {
-      echo $content;
-   }
-}
-function zt_get_thumbnail($postid=0, $size='thumbnail', $attributes='') {
-	if ($postid<1) $postid = get_the_ID();
-	if ($images = get_children(array(
-		'post_parent' => $postid,
-		'post_type' => 'attachment',
-		'numberposts' => 1,
-		'post_mime_type' => 'image', )))
-		foreach($images as $image) {
-			$thumbnail=wp_get_attachment_image_src($image->ID, $size);
-			?>
-<img src="<?php echo $thumbnail[0]; ?>" <?php echo $attributes; ?> alt="<?php the_title(); ?>" />
-<?php
+		
+		if ($showMoreLink) {
+			echo "<div class=";
+			echo "\"continue-reading\">";
+			echo "<a href=\"";
+			the_permalink();
+			echo "\">".$more_link_text."</a></div>";
 		}
-	else {
-?>
-<img src="<?php bloginfo('template_directory'); ?>/images/noimage.png" alt="<?php the_title(); ?>" />
-<?php
-	}
-	
+   } else {
+	  echo $content;
+   }
 }
+
+function limits2($max_char, $more_link_text = '(more...)', $stripteaser = 0, $more_file = '') {
+	limits($max_char, $more_link_text, $stripteaser, $more_file, false);
+}
+
+function zt_get_thumbnail($postid = 0, $size = 'thumbnail', $attributes = '') {
+	if ($postid < 1) $postid = get_the_ID();
+	$images = get_children(
+		array(
+			'post_parent' => $postid,
+			'post_type' => 'attachment',
+			'numberposts' => 1,
+			'post_mime_type' => 'image')
+		);
+	if ($images) {
+		foreach ($images as $image) {
+			$thumbnail = wp_get_attachment_image_src($image->ID, $size);
+			echo "<img src=\"" . $thumbnail[0] . "\" " . $attributes . " alt=\"" . get_the_title() . "\" />";
+		}
+	} else {
+		echo "<img src=\"" . get_bloginfo('template_directory', 'display') . "/images/noimage.png\" alt=\"" . get_the_title() . "\" />";
+	}
+}
+
 function imagesrc() {
-global $post, $posts;
-$first_img = '';
-ob_start();
-ob_end_clean();
-$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-$first_img = $matches [1] [0];
-if (!($first_img))
-{
-	$attachments = get_children(array('post_parent' => get_the_ID(), 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order'));
-if (is_array($attachments))
-	{
-	$count = count($attachments);
-	$first_attachment = array_shift($attachments);
-	$imgsrc = wp_get_attachment_image_src($first_attachment->ID, 'large');
-	$first_img = $imgsrc[0];
+	global $post, $posts;
+	$first_img = '';
+	ob_start();
+	ob_end_clean();
+	$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+	$first_img = $matches[1][0];
+	if (!$first_img) {
+		$attachments = get_children(
+			array(
+				'post_parent' => get_the_ID(),
+				'post_type' => 'attachment',
+				'post_mime_type' => 'image',
+				'orderby' => 'menu_order')
+			);
+		if (is_array($attachments)) {
+			$count = count($attachments);
+			$first_attachment = array_shift($attachments);
+			$imgsrc = wp_get_attachment_image_src($first_attachment->ID, 'large');
+			$first_img = $imgsrc[0];
+		}
 	}
+	return $first_img;
 }
-return $first_img;
-}
-?>
-<?php
 
 $themename = "Azsimple";
 $shortname = "azs";
-$options = array (
-
-array(
-"name" => __('Azsimple Theme Options', 'azsimple'),
-"type" => "title"),
-
-array(
-"type" => "open"),
-
-array(
-"name" => __('Logo URL', 'azsimple'),
-"desc" => __('Enter the logo URL. Maximum logo width = 400px. Maximum logo height = 50px.', 'azsimple'),
-"id" => $shortname."_logourl",
-"std" => "http://azmind.com/wp-themes-demo2/wp-content/themes/azsimple/images/logo.jpg",
-"type" => "text"),
-
-array(
-"name" => __('Favicon URL', 'azsimple'),
-"desc" => __('Enter the favicon URL', 'azsimple'),
-"id" => $shortname."_favicon",
-"std" => "http://azmind.com/wp-themes-demo2/wp-content/themes/azsimple/images/favicon.ico",
-"type" => "text"),
-
-array(
-"name" => __('Featured Posts Category', 'azsimple'),
-"desc" => __('Enter the name of the category that contains the featured posts', 'azsimple'),
-"id" => $shortname."_featuredcat",
-"std" => "Uncategorized",
-"type" => "text"),
-
-array(
-"name" => __('Number of Featured Posts', 'azsimple'),
-"desc" => __('Enter the number of featured posts you want to show', 'azsimple'),
-"id" => $shortname."_featurednr",
-"std" => 4,
-"type" => "text"),
-
-array(
-"name" => __('Facebook URL', 'azsimple'),
-"desc" => __('Enter your Facebook URL: http://....', 'azsimple'),
-"id" => $shortname."_facebook",
-"std" => "http://www.facebook.com/pages/Azmindcom/196582707093191",
-"type" => "text"),
-
-array(
-"name" => __('Twitter ID', 'azsimple'),
-"desc" => __('Enter your Twitter ID', 'azsimple'),
-"id" => $shortname."_twitter",
-"std" => "anli_zaimi",
-"type" => "text"),
-
-array(
-"name" => __('Number of Tweets', 'azsimple'),
-"desc" => __('Enter the number of tweets you want to show in the footer', 'azsimple'),
-"id" => $shortname."_tweetsnr",
-"std" => 4,
-"type" => "text"),
-
-array(
-"name" => __('Feedburner ID', 'azsimple'),
-"desc" => __('Enter your Feedburner ID', 'azsimple'),
-"id" => $shortname."_feedburner",
-"std" => "Azmind",
-"type" => "text"),
-
-array(
-"name" => __('About Us', 'azsimple'),
-"desc" => __('Enter a short presentation text', 'azsimple'),
-"id" => $shortname."_aboutus",
-"std" => "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque sed felis. Aliquam sit amet felis. Mauris semper, velit semper laoreet dictum, <a href='http://azmind.com'>quam diam</a> dictum urna, nec placerat elit nisl in quam.
-<br />Etiam augue pede, molestie eget, rhoncus at, convallis ut, eros. Aliquam pharetra. Nulla in tellus eget odio sagittis blandit. Maecenas at nisl.",
-"type" => "textarea"),
-
-array(
-"name" => __('Header Advertising 468x60', 'azsimple'),
-"desc" => __('Enter advertising code', 'azsimple'),
-"id" => $shortname."_ads468x60",
-"std" => "<img src='http://azmind.com/wp-themes-demo2/wp-content/themes/azsimple/images/header-advertising.png' alt='advertising' />",
-"type" => "textarea"),
-
-array(
-"name" => __('Sidebar Advertising', 'azsimple'),
-"desc" => __('Enter advertising code', 'azsimple'),
-"id" => $shortname."_ads125x125",
-"std" => "<img src='http://azmind.com/wp-themes-demo2/wp-content/themes/azsimple/images/sidebar-advertising.png' alt='advertising' /> <img src='http://azmind.com/wp-themes-demo2/wp-content/themes/azsimple/images/sidebar-advertising.png' alt='advertising' />",
-"type" => "textarea"),
-
-
-array(
-"type" => "close")
-
-);
+$options = array(
+	array(
+		"name" => __('Azsimple Theme Options', 'azsimple'),
+		"type" => "title"),
+	array(
+		"type" => "open"),
+	array(
+		"name" => __('Logo URL', 'azsimple'),
+		"desc" => __('Enter the logo URL. Maximum logo width = 400px. Maximum logo height = 50px.', 'azsimple'),
+		"id" => $shortname."_logourl",
+		"std" => "http://azmind.com/wp-themes-demo2/wp-content/themes/azsimple/images/logo.jpg",
+		"type" => "text"),
+	array(
+		"name" => __('Favicon URL', 'azsimple'),
+		"desc" => __('Enter the favicon URL', 'azsimple'),
+		"id" => $shortname."_favicon",
+		"std" => "http://azmind.com/wp-themes-demo2/wp-content/themes/azsimple/images/favicon.ico",
+		"type" => "text"),
+	array(
+		"name" => __('Featured Posts Category', 'azsimple'),
+		"desc" => __('Enter the name of the category that contains the featured posts', 'azsimple'),
+		"id" => $shortname."_featuredcat",
+		"std" => "Uncategorized",
+		"type" => "text"),
+	array(
+		"name" => __('Number of Featured Posts', 'azsimple'),
+		"desc" => __('Enter the number of featured posts you want to show', 'azsimple'),
+		"id" => $shortname."_featurednr",
+		"std" => 4,
+		"type" => "text"),
+	array(
+		"name" => __('Facebook URL', 'azsimple'),
+		"desc" => __('Enter your Facebook URL: http://....', 'azsimple'),
+		"id" => $shortname."_facebook",
+		"std" => "http://www.facebook.com/pages/Azmindcom/196582707093191",
+		"type" => "text"),
+	array(
+		"name" => __('Twitter ID', 'azsimple'),
+		"desc" => __('Enter your Twitter ID', 'azsimple'),
+		"id" => $shortname."_twitter",
+		"std" => "anli_zaimi",
+		"type" => "text"),
+	array(
+		"name" => __('Number of Tweets', 'azsimple'),
+		"desc" => __('Enter the number of tweets you want to show in the footer', 'azsimple'),
+		"id" => $shortname."_tweetsnr",
+		"std" => 4,
+		"type" => "text"),
+	array(
+		"name" => __('Feedburner ID', 'azsimple'),
+		"desc" => __('Enter your Feedburner ID', 'azsimple'),
+		"id" => $shortname."_feedburner",
+		"std" => "Azmind",
+		"type" => "text"),
+	array(
+		"name" => __('About Us', 'azsimple'),
+		"desc" => __('Enter a short presentation text', 'azsimple'),
+		"id" => $shortname."_aboutus",
+		"std" => "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque sed felis. Aliquam sit amet felis. Mauris semper, velit semper laoreet dictum, <a href='http://azmind.com'>quam diam</a> dictum urna, nec placerat elit nisl in quam.
+		<br />Etiam augue pede, molestie eget, rhoncus at, convallis ut, eros. Aliquam pharetra. Nulla in tellus eget odio sagittis blandit. Maecenas at nisl.",
+		"type" => "textarea"),
+	array(
+		"name" => __('Header Advertising 468x60', 'azsimple'),
+		"desc" => __('Enter advertising code', 'azsimple'),
+		"id" => $shortname."_ads468x60",
+		"std" => "<img src='http://azmind.com/wp-themes-demo2/wp-content/themes/azsimple/images/header-advertising.png' alt='advertising' />",
+		"type" => "textarea"),
+	array(
+		"name" => __('Sidebar Advertising', 'azsimple'),
+		"desc" => __('Enter advertising code', 'azsimple'),
+		"id" => $shortname."_ads125x125",
+		"std" => "<img src='http://azmind.com/wp-themes-demo2/wp-content/themes/azsimple/images/sidebar-advertising.png' alt='advertising' /> <img src='http://azmind.com/wp-themes-demo2/wp-content/themes/azsimple/images/sidebar-advertising.png' alt='advertising' />",
+		"type" => "textarea"),
+	array(
+		"type" => "close")
+	);
 
 /* ------- Add a Theme Options Page ------- */
 function mytheme_add_admin() {
-
-    global $themename, $shortname, $options;
-
-    if ($_GET['page'] == basename(__FILE__)) {
-        if ('save' == $_REQUEST['action']) {
-                foreach ($options as $value) {
-                	update_option($value['id'], $_REQUEST[$value['id']]);
-                }
-                header("Location: themes.php?page=functions.php&saved=true");
-                die;
-
-        } else if( 'reset' == $_REQUEST['action'] ) {
-
-            foreach ($options as $value) {
-                delete_option( $value['id'] ); }
-
-            header("Location: themes.php?page=functions.php&reset=true");
-            die;
-
-        }
-    }
-
-    add_theme_page(sprintf(__('%s Options', 'azsimple'), $themename), sprintf(__('%s Options', 'azsimple'), $themename), 'edit_themes', basename(__FILE__), 'mytheme_admin');
-
+	global $themename, $shortname, $options;
+	if ($_GET['page'] == basename(__FILE__)) {
+		if ('save' == $_REQUEST['action']) {
+			foreach ($options as $value) {
+				update_option($value['id'], $_REQUEST[$value['id']]);
+			}
+			header("Location: themes.php?page=functions.php&saved=true");
+			die;
+		} else if ('reset' == $_REQUEST['action']) {
+			foreach ($options as $value) {
+				delete_option($value['id']);
+			}
+			header("Location: themes.php?page=functions.php&reset=true");
+			die;
+		}
+	}
+	add_theme_page(sprintf(__('%s Options', 'azsimple'), $themename), sprintf(__('%s Options', 'azsimple'), $themename), 'edit_themes', basename(__FILE__), 'mytheme_admin');
 }
 
 function mytheme_admin() {
+	global $themename, $shortname, $options;
+	if ($_REQUEST['saved']) echo '<div id="message" class="updated fade"><p><strong>' . sprintf(__('%s settings saved.', 'azsimple'), $themename) . '</strong></p></div>';
+	if ($_REQUEST['reset']) echo '<div id="message" class="updated fade"><p><strong>' . sprintf(__('%s settings reset.', 'azsimple'), $themename) . '</strong></p></div>';
 
-    global $themename, $shortname, $options;
-
-    if ( $_REQUEST['saved'] ) echo '<div id="message" class="updated fade"><p><strong>' . sprintf(__('%s settings saved.', 'azsimple'), $themename) . '</strong></p></div>';
-    if ( $_REQUEST['reset'] ) echo '<div id="message" class="updated fade"><p><strong>' . sprintf(__('%s settings reset.', 'azsimple'), $themename) . '</strong></p></div>';
-
-?>
-<div class="wrap" style="margin:0 auto; padding:20px 0px 0px;">
-
-<form method="post">
-
-<?php foreach ($options as $value) {
-switch ( $value['type'] ) {
-
-case "open":
-?>
-<div style="width:808px; background:#eee; border:1px solid #ddd; padding:20px; overflow:hidden; display: block; margin: 0px 0px 30px;">
-
-<?php break;
-
-case "close":
-?>
-
-</div>
-
-<?php break;
-
-case "misc":
-?>
-<div style="width:808px; background:#fffde2; border:1px solid #ddd; padding:20px; overflow:hidden; display: block; margin: 0px 0px 30px;">
-	<?php echo $value['name']; ?>
-</div>
-<?php break;
-
-case "title":
-?>
-
-<div style="width:810px; height:22px; background:#555; padding:9px 20px; overflow:hidden; margin:0px; font-family:Verdana, sans-serif; font-size:18px; font-weight:normal; color:#EEE;">
-	<?php echo $value['name']; ?>
-</div>
-
-<?php break;
-
-case 'text':
-?>
-
-<div style="width:808px; padding:0px 0px 10px; margin:0px 0px 10px; border-bottom:1px solid #ddd; overflow:hidden;">
-	<span style="font-family:Arial, sans-serif; font-size:16px; font-weight:bold; color:#444; display:block; padding:5px 0px;">
-		<?php echo $value['name']; ?>
-	</span>
-	<?php if ($value['image'] != "") {?>
-		<div style="width:808px; padding:10px 0px; overflow:hidden;">
-			<img style="padding:5px; background:#FFF; border:1px solid #ddd;" src="<?php bloginfo('template_url');?>/images/<?php echo $value['image'];?>" alt="image" />
-		</div>
-	<?php } ?>
-	<input style="width:200px;" name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>" type="<?php echo $value['type']; ?>" value="<?php echo stripslashes(get_settings($value['id'])); ?>" />
-	<br/>
-	<span style="font-family:Arial, sans-serif; font-size:11px; font-weight:bold; color:#444; display:block; padding:5px 0px;">
-		<?php echo $value['desc']; ?>
-	</span>
-</div>
-
-<?php
-break;
-
-case 'textarea':
-?>
-
-<div style="width:808px; padding:0px 0px 10px; margin:0px 0px 10px; border-bottom:1px solid #ddd; overflow:hidden;">
-	<span style="font-family:Arial, sans-serif; font-size:16px; font-weight:bold; color:#444; display:block; padding:5px 0px;">
-		<?php echo $value['name']; ?>
-	</span>
-	<?php if ($value['image'] != "") {?>
-		<div style="width:808px; padding:10px 0px; overflow:hidden;">
-			<img style="padding:5px; background:#FFF; border:1px solid #ddd;" src="<?php bloginfo('template_url');?>/images/<?php echo $value['image'];?>" alt="image" />
-		</div>
-	<?php } ?>
-	<textarea name="<?php echo $value['id']; ?>" style="width:400px; height:200px;" type="<?php echo $value['type']; ?>" cols="" rows=""><?php echo stripslashes(get_settings( $value['id'] )); ?></textarea>
-	<br/>
-	<span style="font-family:Arial, sans-serif; font-size:11px; font-weight:bold; color:#444; display:block; padding:5px 0px;">
-		<?php echo $value['desc']; ?>
-	</span>
-</div>
-
-<?php
-break;
-
-case 'select':
-?>
-
-<div style="width:808px; padding:0px 0px 10px; margin:0px 0px 10px; border-bottom:1px solid #ddd; overflow:hidden;">
-	<span style="font-family:Arial, sans-serif; font-size:16px; font-weight:bold; color:#444; display:block; padding:5px 0px;">
-		<?php echo $value['name']; ?>
-	</span>
-	<?php if ($value['image'] != "") {?>
-		<div style="width:808px; padding:10px 0px; overflow:hidden;">
-			<img style="padding:5px; background:#FFF; border:1px solid #ddd;" src="<?php bloginfo('template_url');?>/images/<?php echo $value['image'];?>" alt="image" />
-		</div>
-	<?php } ?>
-		<select style="width:240px;" name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>">
-	<?php foreach ($value['options'] as $option_value => $option_text) { 
-	   $checked = ' ';
-        if (get_settings($value['id']) == $option_text) {
-            $selected = ' selected="selected" ';
-        }
-        else if (get_settings($value['id']) === FALSE && $value['std'] == $option_text){
-            $selected = ' selected="selected" ';
-        }
-        else {
-            $selected = ' ';
-        }
-    ?>
-    <option <?php echo "value=".$option_text." ".$selected; ?> ><?php echo $option_text; ?></option>
-	<?php } ?>
-    </select>
-	<br/>
-	<span style="font-family:Arial, sans-serif; font-size:11px; font-weight:bold; color:#444; display:block; padding:5px 0px;">
-		<?php echo $value['desc']; ?>
-	</span>
-</div>
-
-<?php
-break;
-
-case "checkbox":
-?>
-
-<div style="width:808px; padding:0px 0px 10px; margin:0px 0px 10px; border-bottom:1px solid #ddd; overflow:hidden;">
-	<span style="font-family:Arial, sans-serif; font-size:16px; font-weight:bold; color:#444; display:block; padding:5px 0px;">
-		<?php echo $value['name']; ?>
-	</span>
-	<?php if ($value['image'] != "") {?>
-		<div style="width:808px; padding:10px 0px; overflow:hidden;">
-			<img style="padding:5px; background:#FFF; border:1px solid #ddd;" src="<?php bloginfo('template_url');?>/images/<?php echo $value['image'];?>" alt="image" />
-		</div>
-	<?php } ?>
-	<?php if(get_option($value['id'])){ $checked = "checked=\"checked\""; }else{ $checked = "";} ?>
-	<input type="checkbox" name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>" value="true" <?php echo $checked; ?> />
-	<br/>
-	<span style="font-family:Arial, sans-serif; font-size:11px; font-weight:bold; color:#444; display:block; padding:5px 0px;">
-		<?php echo $value['desc']; ?>
-	</span>
-</div>
-
-
-<?php
-break;
-
-case "submit":
-?>
-
-<p class="submit">
-<input name="save" type="submit" value="<?php _e('Save changes', 'azsimple'); ?>" />
-<input type="hidden" name="action" value="save" />
-</p>
-
-<?php break;
+	echo "<div class=\"wrap\" style=\"margin:0 auto; padding:20px 0px 0px;\">";
+	echo "<form method=\"post\">";
+	foreach ($options as $value) {
+		switch ($value['type']) {
+			case "open":
+				echo "<div style=\"width:808px; background:#eee; border:1px solid #ddd; padding:20px; overflow:hidden; display: block; margin: 0px 0px 30px;\">";
+				break;
+			case "close":
+				echo "</div>";
+				break;
+			case "misc":
+				echo "<div style=\"width:808px; background:#fffde2; border:1px solid #ddd; padding:20px; overflow:hidden; display: block; margin: 0px 0px 30px;\">";
+				echo $value['name'];
+				echo "</div>";
+				break;
+			case "title":
+				echo "<div style=\"width:810px; height:22px; background:#555; padding:9px 20px; overflow:hidden; margin:0px; font-family:Verdana, sans-serif; font-size:18px; font-weight:normal; color:#EEE;\">";
+				echo $value['name'];
+				echo "</div>";
+				break;
+			case "text":
+				echo "<div style=\"width:808px; padding:0px 0px 10px; margin:0px 0px 10px; border-bottom:1px solid #ddd; overflow:hidden;\">";
+				echo "<span style=\"font-family:Arial, sans-serif; font-size:16px; font-weight:bold; color:#444; display:block; padding:5px 0px;\">";
+				echo $value['name'];
+				echo "</span>";
+				if ($value['image'] != "") {
+					echo "<div style=\"width:808px; padding:10px 0px; overflow:hidden;\">";
+					echo "<img style=\"padding:5px; background:#FFF; border:1px solid #ddd;\" src=\"";
+					echo bloginfo('template_url');
+					echo "/images/" . $value['image'] . "\" alt=\"image\" />";
+					echo "</div>";
+				}
+				echo "<input style=\"width:200px;\" name=\"";
+				echo $value['id'];
+				echo "\" id=\"";
+				echo $value['id'];
+				echo "\" type=\"";
+				echo $value['type'];
+				echo "\" value=\"";
+				echo stripslashes(get_settings($value['id']));
+				echo "\" />";
+				echo "<br/>";
+				echo "<span style=\"font-family:Arial, sans-serif; font-size:11px; font-weight:bold; color:#444; display:block; padding:5px 0px;\">";
+				echo $value['desc'];
+				echo "</span>";
+				echo "</div>";
+				break;
+			case "textarea":
+				echo "<div style=\"width:808px; padding:0px 0px 10px; margin:0px 0px 10px; border-bottom:1px solid #ddd; overflow:hidden;\">";
+				echo "<span style=\"font-family:Arial, sans-serif; font-size:16px; font-weight:bold; color:#444; display:block; padding:5px 0px;\">";
+				echo $value['name'];
+				echo "</span>";
+				if ($value['image'] != "") {
+					echo "<div style=\"width:808px; padding:10px 0px; overflow:hidden;\">";
+					echo "<img style=\"padding:5px; background:#FFF; border:1px solid #ddd;\" src=\"";
+					bloginfo('template_url');
+					echo "/images/";
+					echo $value['image'];
+					echo "\" alt=\"image\" />";
+					echo "</div>";
+				}
+				echo "<textarea name=\"";
+				echo $value['id'];
+				echo "\" style=\"width:400px; height:200px;\" type=\"";
+				echo $value['type'];
+				echo "\" cols=\"\" rows=\"\">";
+				echo stripslashes(get_settings($value['id']));
+				echo "</textarea>";
+				echo "<br/>";
+				echo "<span style=\"font-family:Arial, sans-serif; font-size:11px; font-weight:bold; color:#444; display:block; padding:5px 0px;\">";
+				echo $value['desc'];
+				echo "</span>";
+				echo "</div>";
+				break;
+			case "select":
+				echo "<div style=\"width:808px; padding:0px 0px 10px; margin:0px 0px 10px; border-bottom:1px solid #ddd; overflow:hidden;\">";
+				echo "<span style=\"font-family:Arial, sans-serif; font-size:16px; font-weight:bold; color:#444; display:block; padding:5px 0px;\">";
+				echo $value['name'];
+				echo "</span>";
+				if ($value['image'] != "") {
+					echo "<div style=\"width:808px; padding:10px 0px; overflow:hidden;\">";
+					echo "<img style=\"padding:5px; background:#FFF; border:1px solid #ddd;\" src=\"";
+					bloginfo('template_url');
+					echo "/images/";
+					echo $value['image'];
+					echo "\" alt=\"image\" />";
+					echo "</div>";
+				}
+				echo "<select style=\"width:240px;\" name=\"";
+				echo $value['id'];
+				echo "\" id=\"";
+				echo $value['id'];
+				echo "\">";
+				foreach ($value['options'] as $option_value => $option_text) { 
+					$checked = ' ';
+					if (get_settings($value['id']) == $option_text) {
+						$selected = ' selected="selected" ';
+					} elseif (get_settings($value['id']) === FALSE && $value['std'] == $option_text){
+						$selected = ' selected="selected" ';
+					} else {
+						$selected = ' ';
+					}
+					echo "<option value=\"";
+					echo $option_text;
+					echo "\"";
+					echo $selected;
+					echo ">";
+					echo $option_text;
+					echo "</option>";
+				}
+				echo "</select>";
+				echo "<br/>";
+				echo "<span style=\"font-family:Arial, sans-serif; font-size:11px; font-weight:bold; color:#444; display:block; padding:5px 0px;\">";
+				echo $value['desc'];
+				echo "</span>";
+				echo "</div>";
+				break;
+			case "checkbox":
+				echo "<div style=\"width:808px; padding:0px 0px 10px; margin:0px 0px 10px; border-bottom:1px solid #ddd; overflow:hidden;\">";
+				echo "<span style=\"font-family:Arial, sans-serif; font-size:16px; font-weight:bold; color:#444; display:block; padding:5px 0px;\">";
+				echo $value['name'];
+				echo "</span>";
+				if ($value['image'] != "") {
+					echo "<div style=\"width:808px; padding:10px 0px; overflow:hidden;\">";
+					echo "<img style=\"padding:5px; background:#FFF; border:1px solid #ddd;\" src=\"";
+					bloginfo('template_url');
+					echo "/images/";
+					echo $value['image'];
+					echo "\" alt=\"image\" />";
+					echo "</div>";
+				}
+				if (get_option($value['id'])) {
+					$checked = "checked=\"checked\"";
+				} else {
+					$checked = "";
+				}
+				echo "<input type=\"checkbox\" name=\"";
+				echo $value['id'];
+				echo "\" id=\"";
+				echo $value['id'];
+				echo "\" value=\"true\" ";
+				echo $checked;
+				echo "/>";
+				echo "<br/>";
+				echo "<span style=\"font-family:Arial, sans-serif; font-size:11px; font-weight:bold; color:#444; display:block; padding:5px 0px;\">";
+				echo $value['desc'];
+				echo "</span>";
+				echo "</div>";
+				break;
+			case "submit":
+				echo "<p class=\"submit\">";
+				echo "<input name=\"save\" type=\"submit\" value=\"";
+				_e('Save changes', 'azsimple');
+				echo "\" />";
+				echo "<input type=\"hidden\" name=\"action\" value=\"save\" />";
+				echo "</p>";
+				break;
+		}
+	}
+	echo "<p class=\"submit\">";
+	echo "<input name=\"save\" type=\"submit\" value=\"";
+	_e('Save changes', 'azsimple');
+	echo "\" />";
+	echo "<input type=\"hidden\" name=\"action\" value=\"save\" />";
+	echo "</p>";
+	echo "</form>";
+	echo "<form method=\"post\">";
+	echo "<p class=\"submit\">";
+	echo "<input name=\"reset\" type=\"submit\" value=\"";
+	_e('Reset', 'azsimple');
+	echo "\" />";
+	echo "<input type=\"hidden\" name=\"action\" value=\"reset\" />";
+	echo "</p>";
+	echo "</form>";
 }
-}
-?>
 
-<p class="submit">
-<input name="save" type="submit" value="<?php _e('Save changes', 'azsimple'); ?>" />
-<input type="hidden" name="action" value="save" />
-</p>
-</form>
-<form method="post">
-<p class="submit">
-<input name="reset" type="submit" value="<?php _e('Reset', 'azsimple'); ?>" />
-<input type="hidden" name="action" value="reset" />
-</p>
-</form>
+function mytheme_wp_head() {}
 
-<?php
-}
-function mytheme_wp_head() { ?>
-<?php }
 add_action('wp_head', 'mytheme_wp_head');
-add_action('admin_menu', 'mytheme_add_admin'); ?>
+add_action('admin_menu', 'mytheme_add_admin');
+?>
