@@ -253,12 +253,10 @@ em { font-style: italic; }
 }
 
 ul#featured-posts-list { width: 570px; overflow: hidden; }
-ul#featured-posts-list li { width: 570px; height: 205px; }
+ul#featured-posts-list li { width: 570px; min-height: 205px; }
 
 .featured-post-image {
 	float: left;
-	width: 214px;
-	height: 160px;
 	margin: 18px 0 0 0;
 	padding: 2px;
 	border: 6px solid #eeeeee;

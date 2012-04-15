@@ -2,6 +2,11 @@
 
 load_theme_textdomain('azsimple', TEMPLATEPATH . '/languages');
 
+/* Add support of featured image */
+add_theme_support('post-thumbnails');
+add_image_size('featured-post-image', 214, 160); // new resize type
+
+
 /* ------- Adding a custom menu ------- */
 add_theme_support('menus');
 
@@ -48,48 +53,129 @@ function limits2($max_char, $more_link_text = '(more...)', $stripteaser = 0, $mo
 	limits($max_char, $more_link_text, $stripteaser, $more_file, false);
 }
 
-function zt_get_thumbnail($postid = 0, $size = 'thumbnail', $attributes = '') {
-	if ($postid < 1) $postid = get_the_ID();
+/**
+ * Displays img tag describing a post.
+ * The image used is the featured post image.
+ * If it doesn't exists, it takes the first image found in the post if it is also in the attachement.
+ * If nothing is found before, a default image is putted.
+ * 
+ * @param integer $postid
+ * @param string $size
+ * @param string $attributes
+ */
+function zt_get_thumbnail($postid = null, $size = 'thumbnail', $attributes = '') {
+	$postid = (null === $postid) ? get_the_ID() : $postid;
+	$html = "<img src=\"" . get_bloginfo('template_directory', 'display');
+	$html .= "/images/noimage.png\" alt=\"" . get_the_title() . "\" />";
+	if (has_post_thumbnail($postid)) {
+		$html = get_the_post_thumbnail($postid, $size, $attributes);
+	} else {
+		$htmlFirstImg = get_first_valid_local_post_image($postid, $size, $attributes);
+		if (null != $htmlFirstImg) {
+			$html = $htmlFirstImg;
+		}
+	}
+	echo $html;
+}
+
+/**
+ * Returns img tag corresponding of the first image from attachement used in the post.
+ * 
+ * @param integer $postid
+ * @param integer $size
+ * @param string $attributes
+ * @return img tag.
+ */
+function get_first_valid_local_post_image($postid = null, $size = 'thumbnail', $attributes = '') {
+	$postid = (null === $postid) ? get_the_ID() : $postid;
+	$htmlImg = null;
+	$srcListInPostContent = get_all_images_in_post_content($postid);
+	foreach ($srcListInPostContent as $srcFromPostContent) {
+		if (url_is_valid($srcFromPostContent)) {
+			$imageListFromAttachement = get_all_images_in_attachement($postid);
+			if ($imageListFromAttachement) {
+				foreach($imageListFromAttachement as $imageFromAttachement) {
+					if (src_is_on_attachement($imageFromAttachement->ID, $srcFromPostContent)) {
+						$htmlImg = wp_get_attachment_image($imageFromAttachement->ID, $size, false, $attributes);
+						break 2;
+					}
+				}
+			}
+		}
+	}
+	return $htmlImg;
+}
+
+/**
+ * Tests if an URL is valid.
+ * 
+ * @param string $url
+ * @return boolean true if the url is valid. false else.
+ */
+function url_is_valid($url = null) {
+	$isValid = false;
+	if (null !== $url) {
+		if (!ini_get('allow_url_fopen')) {
+	        $file_data = curl_get_file_contents($url);
+	    } else {
+	        $file_data = @file_get_contents($url);
+	    }
+	    $isValid = !($file_data === false);
+	}
+    return $isValid;
+}
+
+/**
+ * Returns images attached to a post.
+ * 
+ * @param integer $postid
+ * @return array Array of images.
+ */
+function get_all_images_in_attachement($postid = null) {
+	$postid = (null === $postid) ? get_the_ID() : $postid;
 	$images = get_children(
 		array(
 			'post_parent' => $postid,
 			'post_type' => 'attachment',
-			'numberposts' => 1,
-			'post_mime_type' => 'image')
+			'post_mime_type' => 'image',
+			'orderby' => 'menu_order')
 		);
-	if ($images) {
-		foreach ($images as $image) {
-			$thumbnail = wp_get_attachment_image_src($image->ID, $size);
-			echo "<img src=\"" . $thumbnail[0] . "\" " . $attributes . " alt=\"" . get_the_title() . "\" />";
-		}
-	} else {
-		echo "<img src=\"" . get_bloginfo('template_directory', 'display') . "/images/noimage.png\" alt=\"" . get_the_title() . "\" />";
-	}
+	return $images;
 }
 
-function imagesrc() {
-	global $post, $posts;
-	$first_img = '';
-	ob_start();
-	ob_end_clean();
-	$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-	$first_img = $matches[1][0];
-	if (!$first_img) {
-		$attachments = get_children(
-			array(
-				'post_parent' => get_the_ID(),
-				'post_type' => 'attachment',
-				'post_mime_type' => 'image',
-				'orderby' => 'menu_order')
-			);
-		if (is_array($attachments)) {
-			$count = count($attachments);
-			$first_attachment = array_shift($attachments);
-			$imgsrc = wp_get_attachment_image_src($first_attachment->ID, 'large');
-			$first_img = $imgsrc[0];
+/**
+ * Returns images found in a post.
+ * 
+ * @param integer $postid
+ * @return array Array of src images.
+ */
+function get_all_images_in_post_content($postid = null) {
+	$postid = (null === $postid) ? get_the_ID() : $postid;
+	$post = get_post($postid);
+	preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+	return $matches[1];
+}
+
+/**
+ * Searches if the image URI found in the post correspond to an URI (one per size) of the image id.
+ * 
+ * @param integer $imageId
+ * @param string $srcFromPostContent
+ * @return boolean true if a same URI has been found.
+ */
+function src_is_on_attachement($imageId = null, $srcFromPostContent = '') {
+	$retVal = false;
+	if (null !== $imageId && '' !== $srcFromPostContent) {
+		$sizeList = get_intermediate_image_sizes();
+		foreach ($sizeList as $size) {
+			$srcFromAttachement = wp_get_attachment_image_src($imageId, $size);
+			if ($srcFromAttachement[0] == $srcFromPostContent) {
+				$retVal = true;
+				break;
+			}
 		}
 	}
-	return $first_img;
+	return $retVal;
 }
 
 $themename = "Azsimple";

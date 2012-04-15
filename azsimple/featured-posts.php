@@ -14,9 +14,7 @@
 		<?php while ($my_query->have_posts()) : $my_query->the_post(); ?> 
 			<li>
 				<div class="featured-post-image">
-					<?php if (imagesrc()) { ?>
-						<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><img src="<?php bloginfo('template_directory'); ?>/timthumb.php?src=<?php echo imagesrc(); ?>&amp;w=214&amp;h=160" alt="<?php the_title(); ?>" /></a>
-					<?php } ?>
+					<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php zt_get_thumbnail(null, 'featured-post-image'); ?></a>
 				</div>
 				<div class="featured-post-text">
 					<h2 class="featured-post-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
