@@ -4,6 +4,7 @@
 		<title><?php bloginfo('name'); ?> <?php if (is_single()) { _e('&raquo; Blog Archive', 'azsimple'); } ?> <?php wp_title(); ?></title>
 		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 		<meta name="generator" content="WordPress <?php bloginfo('version'); ?>" /><!-- leave this for stats please -->
+		<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/reset.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
 		<link rel="alternate" href="<?php bloginfo('rss2_url'); ?>" type="application/rss+xml" title="RSS 2.0" />
 		<link rel="alternate" href="<?php bloginfo('rss_url'); ?>" type="text/xml" title="RSS .92" />
@@ -17,9 +18,9 @@
 		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/javascript/jquery.bxSlider.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
-				$('#featured-posts-list').bxSlider({
+				$('#featured-posts ul').bxSlider({
 					pager: true,
-					pagerSelector: '#featured-posts-pages',
+					pagerSelector: '#featured-posts-nav > div',
 					controls: false
 				});
 			});
@@ -47,10 +48,10 @@
 	</head>
 	<body>
 		<div id="header">
-			<div class="header-top">
-				<div class="main-menu-container">
+			<div id="header-top">
+				<div>
 					<?php wp_nav_menu(array('theme_location' => 'menu-1', 'container' => 'div', 'container_class' => 'main-menu')); ?>
-					<div class="social">
+					<div id="social">
 						<?php
 							if ($azs_facebook !== '' && $azs_twitter !== '') {
 								printf(__('Follow us: <a href="%1$s">Facebook</a>, <a href="http://twitter.com/%2$s">Twitter</a>, <a href="%3$s">RSS Feed</a>', 'azsimple'), $azs_facebook, $azs_twitter, get_bloginfo('rss2_url'));
@@ -65,11 +66,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="header-bottom">
-				<div class="logo" style="background-image: url(<?php echo $azs_logourl; ?>);">
-					<h1><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?></a></h1>
+			<div id="header-bottom">
+				<div id="logo">
+					<h1><a href="<?php echo get_option('home'); ?>/"><img src="<?php echo $azs_logourl; ?>" alt="<?php bloginfo('name'); ?>" /></a></h1>
 				</div>
-				<div class="header-advertising"><?php echo stripslashes($azs_ads468x60); ?></div>
+				<div id="header-ads"><?php echo stripslashes($azs_ads468x60); ?></div>
 			</div>
 		</div>
 		<div id="content">

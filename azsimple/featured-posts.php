@@ -8,8 +8,8 @@
 		}
 	}
 ?>
-<div class="featured-posts">
-	<ul id="featured-posts-list">
+<div id="featured-posts">
+	<ul>
 		<?php $my_query = new WP_Query('showposts='.$azs_featurednr.'&category_name='.$azs_featuredcat); ?>
 		<?php while ($my_query->have_posts()) : $my_query->the_post(); ?> 
 			<li>
@@ -17,14 +17,14 @@
 					<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php zt_get_thumbnail(null, 'featured-post-image'); ?></a>
 				</div>
 				<div class="featured-post-text">
-					<h2 class="featured-post-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
-					<div class="featured-post-content"><?php limits(120, __('Continue Reading', 'azsimple')); ?></div>
+					<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+					<div><?php limits(120, __('Continue Reading', 'azsimple')); ?></div>
 				</div>
 				<div class="clearfix"></div>
 			</li>
 		<?php endwhile; ?>
 	</ul>
-	<div class="featured-posts-nav">
-		<div id="featured-posts-pages"></div>
+	<div id="featured-posts-nav">
+		<div></div>
 	</div>
 </div><!-- featured-posts -->
