@@ -35,7 +35,7 @@
 	
 	<?php if ('open' == $post->comment_status) : ?>
 		<div id="respond">
-			<h3 class="postcomment"><?php comment_form_title(__('Leave a Reply', 'azsimple'), __('Leave a Reply to %s', 'azsimple')); ?></h3>
+			<h3><?php comment_form_title(__('Leave a Reply', 'azsimple'), __('Leave a Reply to %s', 'azsimple')); ?></h3>
 			<div class="cancel-comment-reply">
 				<small><?php cancel_comment_reply_link(); ?></small>
 			</div>
