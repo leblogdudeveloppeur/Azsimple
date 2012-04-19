@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Azsimple 1.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-07 16:44+0100\n"
-"PO-Revision-Date: 2012-04-12 16:46+0100\n"
+"PO-Revision-Date: 2012-04-19 17:25+0100\n"
 "Last-Translator: Le blog du développeur <contact@leblogdudeveloppeur.fr>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -346,22 +346,22 @@ msgstr "» Archives du blog"
 #: header.php:56
 #, php-format
 msgid "Follow us: <a href=\"%1$s\">Facebook</a>, <a href=\"http://twitter.com/%2$s\">Twitter</a>, <a href=\"%3$s\">RSS Feed</a>"
-msgstr "Nous suivre&nbsp;: <a href=\"%1$s\">Facebook</a>, <a href=\"http://twitter.com/%2$s\">Twitter</a>, <a href=\"%3$s\">Flux RSS</a>"
+msgstr "Nous suivre&nbsp;: <a href=\"%1$s\">Facebook</a>, <a href=\"http://twitter.com/%2$s\">Twitter</a>, <a href=\"%3$s\">flux RSS</a>"
 
 #: header.php:58
 #, php-format
 msgid "Follow us: <a href=\"%1$s\">Facebook</a>, <a href=\"%2$s\">RSS Feed</a>"
-msgstr "Nous suivre&nbsp;: <a href=\"%1$s\">Facebook</a>, <a href=\"%2$s\">Flux RSS</a>"
+msgstr "Nous suivre&nbsp;: <a href=\"%1$s\">Facebook</a>, <a href=\"%2$s\">flux RSS</a>"
 
 #: header.php:60
 #, php-format
 msgid "Follow us: <a href=\"http://twitter.com/%1$s\">Twitter</a>, <a href=\"%2$s\">RSS Feed</a>"
-msgstr "Nous suivre&nbsp;: <a href=\"http://twitter.com/%1$s\">Twitter</a>, <a href=\"%2$s\">Flux RSS</a>"
+msgstr "Nous suivre&nbsp;: <a href=\"http://twitter.com/%1$s\">Twitter</a>, <a href=\"%2$s\">flux RSS</a>"
 
 #: header.php:62
 #, php-format
 msgid "Follow us: <a href=\"%s\">RSS Feed</a>"
-msgstr "Nous suivre&nbsp;: <a href=\"%s\">Flux RSS</a>"
+msgstr "Nous suivre&nbsp;: <a href=\"%s\">flux RSS</a>"
 
 #: index.php:9
 #: page.php:6
